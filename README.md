@@ -1,4 +1,4 @@
-# 米豆笔记  
+# 笔记  
 ### 目录
 #### Frontend
 - [Vue](./Vue/Vue+b9e26716-22c3-4000-a85b-aafde92798fe.md)
