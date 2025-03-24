@@ -1,0 +1,211 @@
+{
+  "main": {
+    "id": "0cae2d3346602cb0",
+    "type": "split",
+    "children": [
+      {
+        "id": "b75c280b55ad21b9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a2dfa970d76252d7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Vue/数据监听_视.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "数据监听_视"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "de8635840d3b77a1",
+    "type": "split",
+    "children": [
+      {
+        "id": "ce7a95587d79765f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "787816b82c498a5d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "271fc4f83e8f2244",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "e9428c020ae2e835",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "68a449ba6f924872",
+    "type": "split",
+    "children": [
+      {
+        "id": "56027d7a3c1097c5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8afe4aab9974e7b2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的反向链接列表"
+            }
+          },
+          {
+            "id": "854b9905a0c29791",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的出链列表"
+            }
+          },
+          {
+            "id": "8e2e7d34a669aa6a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "d86050b4126577e8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "787816b82c498a5d",
+  "lastOpenFiles": [
+    "ECMAScript/防抖、节流.md",
+    "ECMAScript/闭包.md",
+    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
+    "ECMAScript/跨域问题.md",
+    "ECMAScript/缓存.md",
+    "ECMAScript/浏览器的事件循环.md",
+    "ECMAScript/宏任务+微任务.md",
+    "ECMAScript/同等依赖+peerDepencidency.md",
+    "ECMAScript/原型.md",
+    "ECMAScript/async、await.md",
+    "ECMAScript/call、apply、bind.md",
+    "ECMAScript/Worker.md",
+    "ECMAScript/Promise.md",
+    "ECMAScript/Fetch.md",
+    "ECMAScript/Export和Exposts.md",
+    "ECMAScript/ES+Module、Common+JS.md",
+    "ECMAScript/AMD、CJS、ESM.md",
+    "CSS/布局.md",
+    "CSS/盒子模型.md",
+    "CSS/幽灵空白节点.md",
+    "CSS/伪类、伪元素.md",
+    "CSS/层叠.md",
+    "CSS/BFC+块级格式化上下文.md",
+    "ES工具链/换npm源.md",
+    "ES工具链/webpack.md",
+    "ES工具链/Gulp.md",
+    "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741/202307261039340.png",
+    "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
+    "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861/image.png",
+    "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861",
+    "Vue/数据绑定+64a651fd-d6fa-42aa-a7d4-aa9e8f4a2e2e/image.png",
+    "Vue/数据绑定+64a651fd-d6fa-42aa-a7d4-aa9e8f4a2e2e/image 1.png",
+    "Vue/数据绑定+64a651fd-d6fa-42aa-a7d4-aa9e8f4a2e2e",
+    "Vue/数据代理+-+vue响应式原理+9af58038-ac64-4f99-8f32-54c48c536138/image.png",
+    "Vue/数据代理+-+vue响应式原理+9af58038-ac64-4f99-8f32-54c48c536138/image 1.png",
+    "Vue/数据代理+-+vue响应式原理+9af58038-ac64-4f99-8f32-54c48c536138"
+  ]
+}
