@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Vue/数据监听_视.md",
+                "file": "Vue/生命周期.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "数据监听_视"
+              "title": "生命周期"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -168,8 +168,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "787816b82c498a5d",
+  "active": "a2dfa970d76252d7",
   "lastOpenFiles": [
+    "Vue/数据监听_视.md",
     "ECMAScript/防抖、节流.md",
     "ECMAScript/闭包.md",
     "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
@@ -195,7 +196,6 @@
     "CSS/BFC+块级格式化上下文.md",
     "ES工具链/换npm源.md",
     "ES工具链/webpack.md",
-    "ES工具链/Gulp.md",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741/202307261039340.png",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
