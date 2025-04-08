@@ -37,4 +37,3 @@ type MatchPattern = string | RegExp | (string | RegExp)[]
 在`KeepAlive`包裹住的组件中，或者是在`include`属性中的，`onMounted`和`onUnmounted`这俩函数会被`onActivated`和`onDeactivated`替代掉
 
 毕竟，缓存了组件，就不会被真正的卸载，但是注意，挂载的生命周期函数还是会触发的，毕竟这个组件还是要第一次插入到`DOM`树中去，会在第一次触发`onMounted`
-

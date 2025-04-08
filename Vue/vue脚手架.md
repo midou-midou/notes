@@ -13,15 +13,15 @@
 ```JavaScript
 // 模版解析器
 const app = Vue.extend({
-			template:`
-				<div>	
-					<hello></hello>
-				</div>
-			`,
-			components:{
+            template:`
+                <div>    
+                    <hello></hello>
+                </div>
+            `,
+            components:{
         hello
-			}
-		})
+            }
+        })
 // vue.runtime.js
 new Vue({
   el:'#root',
@@ -34,4 +34,3 @@ new Vue({
 `vue.config.js` 是一个可选的配置文件，如果项目的 (和`package.json` 同级的) 根目录中存在这个文件，那么它会被 `@vue/cli-service`自动加载
 
 [see more](https://cli.vuejs.org/zh/config)
-

@@ -28,7 +28,7 @@ vc（顾客）要点餐，点的菜名（dispatch派发的事件类型和数据�
 
 ### 代码实现（基础）
 
-```JavaScript
+```js
 //该文件用于创建Vuex中最为核心的store
 import Vue from 'vue'
 //引入Vuex
@@ -37,61 +37,61 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 //准备actions——用于响应组件中的动作
 const actions = {
-	jiaOdd(context,value){
-		console.log('actions中的jiaOdd被调用了')
-		if(context.state.sum % 2){
-			context.commit('JIA',value)
-		}
-	}
+    jiaOdd(context,value){
+        console.log('actions中的jiaOdd被调用了')
+        if(context.state.sum % 2){
+            context.commit('JIA',value)
+        }
+    }
 }
 //准备mutations——用于操作数据（state）
 const mutations = {
-	JIA(state,value){
-		console.log('mutations中的JIA被调用了')
-		state.sum += value
-	}
+    JIA(state,value){
+        console.log('mutations中的JIA被调用了')
+        state.sum += value
+    }
 }
 //准备state——用于存储数据
 const state = {
-	sum:0 //当前的和
+    sum:0 //当前的和
 }
 //创建并暴露store
 export default new Vuex.Store({
-	actions,
-	mutations,
-	state,
+    actions,
+    mutations,
+    state,
 })
 ```
 
 **注意：** 上面的`action`中的 `jiaOdd`中接收了一个`context`，这个对象身上带有`commit`、`dispatch`等方法，也有`state`可以在dispatch中做一些判断。但注意`context`对象并不是`store`实例
 
-```JavaScript
+```js
 export default {
-		name:'Count',
-		data() {
-			return {
-				n:1, //用户选择的数字
-			}
-		},
-		methods: {
-			increment(){
-				this.$store.commit('JIA',this.n)
-			},
-			incrementOdd(){
-				this.$store.dispatch('jiaOdd',this.n)
-			}
-		},
-		mounted() {
-			console.log('Count',this)
-		},
-	}
+        name:'Count',
+        data() {
+            return {
+                n:1, //用户选择的数字
+            }
+        },
+        methods: {
+            increment(){
+                this.$store.commit('JIA',this.n)
+            },
+            incrementOdd(){
+                this.$store.dispatch('jiaOdd',this.n)
+            }
+        },
+        mounted() {
+            console.log('Count',this)
+        },
+    }
 ```
 
 ### store中的getter：
 
 用于派生state数据，派生出来的数据可以做其他的操作
 
-```JavaScript
+```js
 getters: {
   // ...
   doneTodosCount (state, getters) {
@@ -106,12 +106,11 @@ getters: {
 
 mapState：将`store`中的`state`映射到组件的计算属性上。
 
-```JavaScript
+```js
 computed:{
   //靠程序员自己亲自去写计算属性
-  /* 
   sum(){
-  	return this.$store.state.sum
+      return this.$store.state.sum
   }
   //借助mapState生成计算属性，从state中读取数据。（对象写法）
   // ...mapState({he:'sum'}),
@@ -124,10 +123,9 @@ mapGetters和上面的用法一致
 
 ### mapMutations和mapActions
 
-```JavaScript
+```js
 methods: {
   //程序员亲自写方法
-  /* 
   increment(){
     this.$store.commit('JIA',this.n)
   },
@@ -141,33 +139,33 @@ methods: {
 
 单一的状态树会在项目中越来越大，越来越臃肿。所以可以将单一的store分割成多个store 每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割
 
-```JavaScript
+```js
 const moduleA = {
   namespaced:true,   // 将此模块注册成带有命名空间的模块，这样在下面的vue组件中使用才不会报错
   state:{
-		sum:0, //当前的和
-		school:'尚硅谷',
-		subject:'前端',
-	},
+        sum:0, //当前的和
+        school:'尚硅谷',
+        subject:'前端',
+    },
   mutations: { 
     JIA(state,value){
-			console.log('mutations中的JIA被调用了')
-			state.sum += value
-		}
+            console.log('mutations中的JIA被调用了')
+            state.sum += value
+        }
   },
   actions: { 
     jiaWait(context,value){
-			console.log('actions中的jiaWait被调用了')
-			setTimeout(()=>{
-				context.commit('JIA',value)
-			},500)
-		}
+            console.log('actions中的jiaWait被调用了')
+            setTimeout(()=>{
+                context.commit('JIA',value)
+            },500)
+        }
   },
   getters:{
-		bigSum(state){
-			return state.sum*10
-		}
-	}
+        bigSum(state){
+            return state.sum*10
+        }
+    }
 }
 const moduleB = {
   namespaced:true,
@@ -206,4 +204,5 @@ methods: {
   }
 }
 ```
+
 

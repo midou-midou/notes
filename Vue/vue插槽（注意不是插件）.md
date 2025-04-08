@@ -6,7 +6,7 @@
 
 ### 默认插槽：
 
-```HTML
+```html
 父组件中：
 <Category>
   <div>html结构1</div>
@@ -27,7 +27,7 @@
 
 给`slot`一个属性“name” `<slot name="xxx"></slot>`
 
-```HTML
+```html
 父组件中：
 <Category>
   <!-- 老写法 -->
@@ -39,7 +39,7 @@
   <template v-slot:footer>
     <div>html结构2</div>
   </template>
-  
+
   <!-- 新写法 缩写形式 -->
   <template #footer>
     <div>html结构2</div>
@@ -62,7 +62,7 @@ PS. 上面的写法中出现了占位标签`<template>`，如果要当成传入�
 
 可以往`slot`标签中传递数据，按照属性的方式传递。传递的数据会给**插槽的使用者**用。官方称：**插槽 prop**
 
-```HTML
+```html
 父组件中：
 <Category>
   <template scope="scopeData">
@@ -99,4 +99,3 @@ PS. 上面的写法中出现了占位标签`<template>`，如果要当成传入�
 ```
 
 PS. 作用域插槽必须要使用`template`标签来接收数据，接收数据用属性`scope`或者`slot-scope`。组件之间的数据流可以通过这个特性可以逆方向传递。
-
