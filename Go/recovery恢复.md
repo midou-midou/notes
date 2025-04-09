@@ -2,7 +2,7 @@
 
 概念：定义在 `defer`关键字后的延迟函数中。使用内置函数 `recover()`来执行恢复操作。执行的流程如下
 
-![https://cdn.nlark.com/yuque/0/2022/jpeg/22573238/1664421337675-ecdd2fb3-2b62-4d00-bce6-48d3a7b701f7.jpeg](https://cdn.nlark.com/yuque/0/2022/jpeg/22573238/1664421337675-ecdd2fb3-2b62-4d00-bce6-48d3a7b701f7.jpeg)
+![https://cdn.nlark.com/yuque/0/2022/jpeg/22573238/1664421337675-ecdd2fb3-2b62-4d00-bce6-48d3a7b701f7.jpeg](recovery恢复\1664421337675-ecdd2fb3-2b62-4d00-bce6-48d3a7b701f7.jpeg)
 
 具体的例子如下
 

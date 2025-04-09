@@ -296,7 +296,7 @@ const Relement = document.getElementById("root");
 
 Tree Diff：DOM树的同层比对，跨层时，直接创建新节点及节点下的树 Element Diff：节点在同一层级，会使用 删除、插入、移动 来更新插入
 
-![https://static.xuyanshe.club/img/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png](https://static.xuyanshe.club/img/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png)
+![https://static.xuyanshe.club/img/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png](React基础\1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png)
 
 Component Diff：
 
@@ -355,7 +355,7 @@ Component Diff：
 
 - React16.4 旧生命周期
 
-![https://static.xuyanshe.club/img/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png](https://static.xuyanshe.club/img/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png)
+![https://static.xuyanshe.club/img/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png](React基础\1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png)
 
 初始化阶段: 由ReactDOM.render()触发—初次渲染
 
@@ -381,7 +381,7 @@ Component Diff：
 
 - 新生命周期
 
-![https://static.xuyanshe.club/img/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png](https://static.xuyanshe.club/img/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png)
+![https://static.xuyanshe.club/img/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png](React基础\1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png)
 
 image.png
 

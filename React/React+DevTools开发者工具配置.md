@@ -1,6 +1,6 @@
 # React DevTools开发者工具配置
 
-![https://static.xuyanshe.club/img/1648391772898-4afcad18-f0be-4d6d-879b-1a0cd707e223.png](https://static.xuyanshe.club/img/1648391772898-4afcad18-f0be-4d6d-879b-1a0cd707e223.png)
+![https://static.xuyanshe.club/img/1648391772898-4afcad18-f0be-4d6d-879b-1a0cd707e223.png](React+DevTools开发者工具配置\1648391772898-4afcad18-f0be-4d6d-879b-1a0cd707e223.png)
 
 在chrome插件商店中添加
 

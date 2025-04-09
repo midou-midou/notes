@@ -8,7 +8,7 @@ Promise可以用于顺序的执行一些异步的代码。比如说，需要**�
 
 这俩均为Promise对象的内部属性，可以访问 一个Promise执行过程中，这两个内部属性的变换
 
-![https://static.xuyanshe.club/img/1675753033811-6522948b-9f63-4bc6-bc6c-248ec5f1c1c9.png](https://static.xuyanshe.club/img/1675753033811-6522948b-9f63-4bc6-bc6c-248ec5f1c1c9.png)
+![https://static.xuyanshe.club/img/1675753033811-6522948b-9f63-4bc6-bc6c-248ec5f1c1c9.png](Promise\1675753033811-6522948b-9f63-4bc6-bc6c-248ec5f1c1c9.png)
 
 `resolve()`: `pending -> fulfilled`
 
@@ -16,7 +16,7 @@ Promise可以用于顺序的执行一些异步的代码。比如说，需要**�
 
 如果一个Promise执行完了resolve或者reject，那么这个Promise的状态是settled
 
-![https://static.xuyanshe.club/img/1675752301178-c3549495-57c0-406a-bc43-e8f131d26d33.jpeg](https://static.xuyanshe.club/img/1675752301178-c3549495-57c0-406a-bc43-e8f131d26d33.jpeg)
+![https://static.xuyanshe.club/img/1675752301178-c3549495-57c0-406a-bc43-e8f131d26d33.jpeg](Promise\1675752301178-c3549495-57c0-406a-bc43-e8f131d26d33.jpeg)
 
 ### 使用
 
