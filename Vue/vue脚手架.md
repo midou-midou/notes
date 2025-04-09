@@ -2,7 +2,7 @@
 
 ### 脚手架的结构
 
-![https://static.xuyanshe.club/img/20230304154840.png](https://static.xuyanshe.club/img/20230304154840.png)
+![https://static.xuyanshe.club/img/20230304154840.png](vue脚手架/20230304154840.png)
 
 ### 脚手架中引入的vue版本和完整版的vue.js有什么区别
 

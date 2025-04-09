@@ -6,7 +6,7 @@ webpack是一种静态资源的打包器。比如说有两个模块都通过CJS�
 
 其实说白了，就是处理前端资源管理、打包的工具，但是`webpack`只能处理`js`格式的文件，处理不了其他格式的文件，如果要处理其他格式的文件，就需要`loader`
 
-![https://static.xuyanshe.club/img/20210708121523.png](https://static.xuyanshe.club/img/20210708121523.png)
+![https://static.xuyanshe.club/img/20210708121523.png](webpack/20210708121523.png)
 
 ## 2. webpack中的入口input、出口output、loader、plugin各个都是些什么
 
@@ -26,7 +26,7 @@ loader可以让webpack打包各种各样的文件，img，ttf，css，jsx等等�
 
 首先，我创建了一个项目
 
-![https://static.xuyanshe.club/img/20210709040442.png](https://static.xuyanshe.club/img/20210709040442.png)
+![https://static.xuyanshe.club/img/20210709040442.png](webpack/20210709040442.png)
 
 只要关心`app`文件夹和`public`文件夹以及`webpack.config.js`文件
 

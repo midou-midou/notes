@@ -10,7 +10,7 @@
 
 ### 原理图：
 
-![https://static.xuyanshe.club/img/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png](https://static.xuyanshe.club/img/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png)
+![https://static.xuyanshe.club/img/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png](Vuex/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png)
 
 ### 术语解释：
 
