@@ -261,7 +261,7 @@ readonly: 让一个响应式数据变为只读的（深只读） shallowReadonly
 
 组件间的通信方式（适合祖孙组件、跨级组件之间的的通信）
 
-![https://static.xuyanshe.club/img/1658067426003-c1837791-8d1d-4bfc-b61f-6dee1f72402b.png](Vue3\1658067426003-c1837791-8d1d-4bfc-b61f-6dee1f72402b.png)
+![https://static.xiaoblogs.cn/img/1658067426003-c1837791-8d1d-4bfc-b61f-6dee1f72402b.png](https://static.xiaoblogs.cn/img/1658067426003-c1837791-8d1d-4bfc-b61f-6dee1f72402b.png)
 
 ```JavaScript
 setup(){

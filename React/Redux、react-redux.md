@@ -6,13 +6,13 @@
 
 图解
 
-![https://static.xuyanshe.club/img/1648352194842-9fea66b6-ea14-423e-9174-2417cc1404be.png](Redux、react-redux\1648352194842-9fea66b6-ea14-423e-9174-2417cc1404be.png)
+![https://static.xiaoblogs.cn/img/1648352194842-9fea66b6-ea14-423e-9174-2417cc1404be.png](https://static.xiaoblogs.cn/img/1648352194842-9fea66b6-ea14-423e-9174-2417cc1404be.png)
 
 
 
 redux的工作流程：
 
-![https://static.xuyanshe.club/img/1648352274817-13e6786a-023a-4d93-97f9-774cd5a20ea8.png](Redux、react-redux\1648352274817-13e6786a-023a-4d93-97f9-774cd5a20ea8.png)
+![https://static.xiaoblogs.cn/img/1648352274817-13e6786a-023a-4d93-97f9-774cd5a20ea8.png](https://static.xiaoblogs.cn/img/1648352274817-13e6786a-023a-4d93-97f9-774cd5a20ea8.png)
 
 根据上图的工作流程，可以得到
 
@@ -38,7 +38,7 @@ redux的工作流程：
 
 redux的工作流程：一个“借书的人” 说了一句“我要借书”的话，之后会在图书馆的“图书记录本”中查找书，找到了书就直接告诉借书的人
 
-![https://static.xuyanshe.club/img/1648352974706-c6c76186-bda5-4435-84c6-b50a157e160c.png](Redux、react-redux\1648352974706-c6c76186-bda5-4435-84c6-b50a157e160c.png)
+![https://static.xiaoblogs.cn/img/1648352974706-c6c76186-bda5-4435-84c6-b50a157e160c.png](https://static.xiaoblogs.cn/img/1648352974706-c6c76186-bda5-4435-84c6-b50a157e160c.png)
 
 项目中的基本结构如上
 
