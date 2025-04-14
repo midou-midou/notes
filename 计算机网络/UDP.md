@@ -26,13 +26,17 @@ UDP（User Datagram Protocol）用户数据报协议，同在传输层。不用�
 
 + 如果结果 不是 `0xFFFF`，说明数据可能损坏，UDP 报文应丢弃
 
-[伪首部结构]()
+![IPv4伪首部](UDP/ipv4header.png)IPv4伪首部
+
+![IPv6伪首部](UDP/ipv6header.png)IPv6伪首部
+
+
 
 ### UDP头部
 
 源端口、目的端口还是表面了要接受的应用层的程序的进程。UDP长度和伪首部中的一致，发送方封装时计算。校验和则是通过上面的伪首部来计算
 
-[UDP头部结构]()
+![UDP头部结构](UDP/image.png)
 
 
 ## 特性
