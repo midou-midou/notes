@@ -12,7 +12,7 @@ mac下、或者是Linux环境下，项目所依赖的node版本不同。node版�
 
 ## 概念
 
-nvm(node version manager) node包版本管理工具，这个工具顾名思义，只能做node的版本控制。npm是安装node附带的，也就相当于间接的控制了npm的版本。但是，如果要让 `nvm` 控制node的版本，必须通过nvm安装
+nvm(node version manager) node包版本管理工具，这个工具顾名思义，只能做node的版本控制。npm是安装node附带的，也就相当于间接的控制了npm的版本。但是，如果要让 `nvm` 控制node的版本，必须通过npm安装
 
 volta (JavaScript command-line tools and package manager) js的命令行工具管理器，不止是node和npm，只要是安装到了项目中的js包都可以管理。
 

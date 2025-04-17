@@ -9,17 +9,17 @@
 
 <script>
     new Vue({
-            el:'#root',
-            data:{
-                time:1621561377603, //时间戳
-                msg:'你好，尚硅谷'
-            },
-            //局部过滤器
-            filters:{
-                timeFormater(value,str='YYYY年MM月DD日 HH:mm:ss'){
-                    return dayjs(value).format(str)
-                }
+        el:'#root',
+        data:{
+            time:1621561377603, //时间戳
+            msg:'你好，尚硅谷'
+        },
+        //局部过滤器
+        filters:{
+            timeFormater(value,str='YYYY年MM月DD日 HH:mm:ss'){
+                return dayjs(value).format(str)
             }
+        }
         })
 </script>
 ```

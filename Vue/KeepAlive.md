@@ -1,6 +1,6 @@
 缓存组件，可以缓存被此标签包裹的组件
 
-```Vue
+```html
 <KeepAlive>
   <MyComponent />
 </KeepAlive>
