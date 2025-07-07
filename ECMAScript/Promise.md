@@ -86,6 +86,84 @@ loadScript("/article/promise-chaining/one.js")
 				});
 ```
 
+# 自己实现一个`MyPromise`
+`Promise`是异步的，关键在于如何实现"异步"的功能。不阻塞主线程的执行，这里自己实现使用`setTimeout`来执行`resolve`和`reject`  
+实现了无返回值，只带有`then()`的`Promise`
+
+```js
+var MyPromiseState = {
+  Pending: 0,
+  Fulfilled: 1,
+  Rejected: 2
+}
+
+
+function MyPromise(callback) {
+  this.state = MyPromiseState.Pending;
+  this.onFulfilleds = [];
+  this.onRejecteds = [];
+
+  this.resolve = (data) => {
+    setTimeout(() => {
+      if (this.state === MyPromiseState.Pending) {
+        this.state = MyPromiseState.Fulfilled;
+        this.value = data
+        for (let i = 0; i < this.onFulfilleds.length; i++) {
+          this.onFulfilleds[i](data);
+        }
+      }
+    })
+  }
+
+  this.reject = (err) => {
+    setTimeout(() => {
+      if (this.state === MyPromiseState.Pending) {
+        this.state = MyPromiseState.Rejected;
+        this.value = err;
+        for (let i = 0; i < this.onRejecteds.length; i++) {
+          this.onRejecteds[i](err);
+        }
+      }
+    })
+  }
+
+  try {
+    callback(this.resolve, this.reject)
+  } catch (error) {
+    this.reject(error)
+  }
+}
+
+
+MyPromise.prototype.then = function (onFulfilled, onRejected) {
+  // 相当于上一个Promise
+  // 因为Promise的链式调用
+  // 第二个Promise的状态会和第一个Promise的状态相关联
+  let self = this
+  let newPromise = new MyPromise((resolve, reject) => {
+    if (self.state === MyPromiseState.Pending) {
+      // 如果是Pending状态，暂时不执行回调
+      // 可以考虑将回调存储起来，等到状态改变时再执行
+      if (onFulfilled) {
+        self.onFulfilleds.push(function () {
+          resolve(onFulfilled(self.value))
+        })
+      }
+      if (onRejected) {
+        self.onRejecteds.push(function () {
+          reject(onRejected(self.value))
+        })
+      }
+    }
+  });
+  return newPromise;
+}
+
+
+export default MyPromise;
+
+```
+
 ### 回调地狱问题
 
 比如上面代码块中需要**按顺序**以此请求对应的js文件，如果不使用Promise
@@ -115,6 +193,8 @@ loadScript('1.js', function(error, script) {
 
 没有发生错误的情况下，又会执行`loadScript`，之后在其中又判断是否有错误，没错误继续load…，上面的代码就是“回调地狱”
 
+# Promise定义的一些静态方法
+
 ### Promise.all
 
 概念：并行执行多个Promise，并且等待所有的Promise执行完毕
@@ -142,6 +222,3 @@ Promise.all([
 ### Promise.allSettled
 
 和`.all()`都是接收一个`Promise`对象数组，但是不会像`all()`碰到`reject`状态的`Promise`就返回，而是等待数组的所有`Promise`执行完毕（如果是`resolve`，返回的`{status: 'fulfilled', value: ''}`对象，如果是`reject`，返回的`{status: 'rejected', reason: ''}`对象）
-
-
-
