@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Vue/生命周期.md",
+                "file": "CSS/层叠.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "生命周期"
+              "title": "层叠"
             }
           }
         ]
@@ -170,7 +170,13 @@
   },
   "active": "a2dfa970d76252d7",
   "lastOpenFiles": [
+    "CSS/布局.md",
+    "CSS/层叠.md",
+    "Vue/Vue3.md",
+    "Vue/事件处理.md",
+    "CSS/BFC+块级格式化上下文.md",
     "Vue/数据监听_视.md",
+    "Vue/生命周期.md",
     "ECMAScript/防抖、节流.md",
     "ECMAScript/闭包.md",
     "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
@@ -188,14 +194,8 @@
     "ECMAScript/Export和Exposts.md",
     "ECMAScript/ES+Module、Common+JS.md",
     "ECMAScript/AMD、CJS、ESM.md",
-    "CSS/布局.md",
     "CSS/盒子模型.md",
     "CSS/幽灵空白节点.md",
-    "CSS/伪类、伪元素.md",
-    "CSS/层叠.md",
-    "CSS/BFC+块级格式化上下文.md",
-    "ES工具链/换npm源.md",
-    "ES工具链/webpack.md",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741/202307261039340.png",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",

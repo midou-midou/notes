@@ -36,7 +36,7 @@ vue3中不需要（但是可以用以前的写法）使用去写vue2中的配置
 </script>
 ```
 
-setup会在`beforeCreate()`之前会执行一次，而且这种风格类似于函数式，没有`this` 并且可以接受`props`和`context`参数
+setup会在`beforeCreate()`之前会执行一次，而且这种风格类似于函数式，没有`this` ， `setup`函数签名 可以接受`props`和`context`参数
 
 - props：值为对象，包含：组件外部传递过来，且组件内部声明接收了的属性。
 
