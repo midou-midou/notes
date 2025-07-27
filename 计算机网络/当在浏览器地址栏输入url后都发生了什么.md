@@ -68,7 +68,7 @@
 
 ### 创建Node节点，构建DOM树
 1. 现在开始处理`Token`，分类`Token`后，`Token`中表示HTML开始标签的标记通过浏览器内部方法会创建对应的元素，之后会先入一个栈  
-2. 创建的这个元素内部有一些属性，比如父节点，子节点。这些属性通过内部方法的一些临时变量来指定，之后再赋值给处理的元素的对应属性  
+2. 创建的这个元素的属性，父节点，子节点的关系通过内部方法的临时变量来指定，子节点创建之后再赋值，父节点的子节点属性为一个引用 
 3. 碰到闭合标签的标记，会一直`pop`栈中的元素，直到遇到起始标签  
 PS.如果遇到自定义的标签，则会默认使用`<span>`标签代替
 
@@ -117,7 +117,7 @@ PS.如果遇到自定义的标签，则会默认使用`<span>`标签代替
 PS. 根据上面的浏览器渲染的步骤可知，布局计算后面一定有绘制步骤，所以回流必定重绘
 
 ## 虚研社按钮网页解析的过程
-![](./web/xysbtn-parsehtml2.png)
+![](./web/xysbtn-parsehtml2.png)  
 下面的图清晰一点
 
 ![](./web/xysbtn-parsehtml1.png)
@@ -127,7 +127,7 @@ PS. 根据上面的浏览器渲染的步骤可知，布局计算后面一定有�
 ![](./web/xysbtn-parsehtml4.png)
 `script`脚本是异步加载，而样式表不是
 
-![](./web/xysbtn-parsehtml3.png)
+![](./web/xysbtn-parsehtml3.png)  
 首先解析样式表，和最初的HTML元素形成渲染树，布局，绘制（解析样式表这个部分后有很细小的两个紫色块，那个就是布局和绘制的过程）
 因为没什么元素，所以很短很窄
 
@@ -135,16 +135,16 @@ PS. 根据上面的浏览器渲染的步骤可知，布局计算后面一定有�
 
 这里是浏览器编译虚研社按钮js，后面的函数调用是react创建dom等操作，以及最后还有微任务的执行（虚研社按钮中的网络请求）
 
-![](./web/xysbtn-parsehtml6.png)
+![](./web/xysbtn-parsehtml6.png)  
 之后就是虚研社按钮通过js创建的dom的绘制过程
 
-![](./web/xysbtn-parsehtml7.png)
+![](./web/xysbtn-parsehtml7.png)  
 还有支持按钮部分有很多webp的头像图片，才开始下载，之后加载。触发回流
 
-![](./web/xysbtn-parsehtml8.png)
+![](./web/xysbtn-parsehtml8.png)  
 音声面板的动画
 
-![](./web/xysbtn-parsehtml9.png)
+![](./web/xysbtn-parsehtml9.png)  
 这里是加载了一个svg的`loading`图标，懒加载虚研社按钮音声数据，如果用户没下滑到下面，就不发送音声信息的request，且触发了`DOMContentLoaded`事件
 
 至此完成了虚研社按钮主站的显示
