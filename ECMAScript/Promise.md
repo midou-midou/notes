@@ -77,34 +77,33 @@ new Promise((resolve, reject) => {
 
 ```JavaScript
 loadScript("/article/promise-chaining/one.js")  
-	.then(script => loadScript("/article/promise-chaining/two.js"))  
-	.then(script => loadScript("/article/promise-chaining/three.js"))  
-	.then(script => {    // 脚本加载完成，我们可以在这儿使用脚本中声明的函数    
-					one();    
-					two();    
-					three();  
-				});
+    .then(script => loadScript("/article/promise-chaining/two.js"))  
+    .then(script => loadScript("/article/promise-chaining/three.js"))  
+    .then(script => {    // 脚本加载完成，我们可以在这儿使用脚本中声明的函数    
+      one();    
+      two();    
+      three();  
+    });
 ```
 
+如果`.then()`这样调用没有传入`onFulfilled`就会透传
+
 # 自己实现一个`MyPromise`
-`Promise`是异步的，关键在于如何实现"异步"的功能。不阻塞主线程的执行，这里自己实现使用`setTimeout`来执行`resolve`和`reject`  
-实现了无返回值，只带有`then()`的`Promise`
+`Promise`是异步的，关键在于如何实现"异步"的功能。不阻塞主线程的执行，这里自己实现使用`queueMicrotask`来执行`resolve`和`reject`  
+`thenable`方法也是难点，要考虑传入的两个方法的返回值的情况，Promise A+也就这些东西
 
 ```js
-var MyPromiseState = {
-  Pending: 0,
-  Fulfilled: 1,
-  Rejected: 2
-}
-
-
 function MyPromise(callback) {
   this.state = MyPromiseState.Pending;
   this.onFulfilleds = [];
   this.onRejecteds = [];
+  this.value = null
 
-  this.resolve = (data) => {
-    setTimeout(() => {
+  this.resolve = data => {
+    if (data instanceof MyPromise) {
+      return data.then(this.resolve, this.reject)
+    }
+    queueMicrotask(() => {
       if (this.state === MyPromiseState.Pending) {
         this.state = MyPromiseState.Fulfilled;
         this.value = data
@@ -115,8 +114,8 @@ function MyPromise(callback) {
     })
   }
 
-  this.reject = (err) => {
-    setTimeout(() => {
+  this.reject = err => {
+    queueMicrotask(() => {
       if (this.state === MyPromiseState.Pending) {
         this.state = MyPromiseState.Rejected;
         this.value = err;
@@ -136,7 +135,12 @@ function MyPromise(callback) {
 
 
 MyPromise.prototype.then = function (onFulfilled, onRejected) {
-  // 相当于上一个Promise
+
+  // 参数归一化
+  onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
+  onRejected = typeof onRejected === 'function' ? onRejected : err => { throw err }
+
+  // self 相当于上一个Promise
   // 因为Promise的链式调用
   // 第二个Promise的状态会和第一个Promise的状态相关联
   let self = this
@@ -144,24 +148,117 @@ MyPromise.prototype.then = function (onFulfilled, onRejected) {
     if (self.state === MyPromiseState.Pending) {
       // 如果是Pending状态，暂时不执行回调
       // 可以考虑将回调存储起来，等到状态改变时再执行
-      if (onFulfilled) {
-        self.onFulfilleds.push(function () {
-          resolve(onFulfilled(self.value))
-        })
-      }
-      if (onRejected) {
-        self.onRejecteds.push(function () {
-          reject(onRejected(self.value))
-        })
-      }
+      self.onFulfilleds.push(() => {
+        try {
+          let x = onFulfilled(self.value)
+          solutionX(newPromise, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      })
+      self.onRejecteds.push(() => {
+        try {
+          let x = onRejected(self.value)
+          solutionX(newPromise, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      })
+    }
+
+    if (self.state === MyPromiseState.Fulfilled) {
+      queueMicrotask(() => {
+        try {
+          let x = onFulfilled(self.value)
+          solutionX(newPromise, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      });
+    }
+
+    if (self.state === MyPromiseState.Rejected) {
+      queueMicrotask(() => {
+        try {
+          let x = onRejected(self.value)
+          solutionX(newPromise, x, resolve, reject)
+        } catch (error) {
+          reject(error)
+        }
+      });
     }
   });
   return newPromise;
 }
 
+// 这个方法是处理onFulfilled、onRejected回调的返回值的
+// 返回值根据Promise A+规范
+//   要考虑是否返回了当前.then调用前的Promise
+//   是否返回了一个新的Promise
+//   是否返回了一个对象或方法，里面是不是正好有一个叫then的方法
+//   除此之外的其他类型的值
+const solutionX = (promise, x, promiseResolve, promiseReject) => {
+  if (Object.is(promise, x)) {
+    return promiseReject(new TypeError('x is not same to be promise'))
+  }
+  if (x instanceof MyPromise) {
+    if (x.state === MyPromiseState.Pending) {
+      x.then(
+        value => solutionX(promise, value, promiseResolve, promiseReject),
+        promiseReject
+      )
+    }
+    if (x.state === MyPromiseState.Fulfilled || x.state === MyPromiseState.Rejected) {
+      x.then(
+        promiseResolve, promiseReject
+      )
+    }
+    return
+  }
+  let called = false;
+  if (!x) {
+    promiseResolve(x)
+  } else if (typeof x === 'function' || typeof x === 'object') {
+    try {
+      let then = x.then
+      if (typeof then === 'function') {
+        then.apply(
+          x,
+          [
+            y => {
+              if (called) return
+              called = true
+              solutionX(promise, y, promiseResolve, promiseReject)
+            },
+            r => {
+              if (called) return
+              called = true
+              promiseReject(r)
+            }
+          ]
+        )
+      } else {
+        promiseResolve(x)
+      }
+    } catch (error) {
+      if (called) return
+      called = true
 
-export default MyPromise;
+      promiseReject(error)
+    }
+  } else {
+    promiseResolve(x)
+  }
+}
 
+```
+Promise A+规范测试
+```
+pnpx promises-aplus-tests myPromise.js
+```
+结果通过所有872个测试用例
+```
+ 872 passing (20s)
 ```
 
 ### 回调地狱问题
