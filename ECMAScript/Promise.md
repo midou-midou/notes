@@ -86,7 +86,8 @@ loadScript("/article/promise-chaining/one.js")
     });
 ```
 
-如果`.then()`这样调用没有传入`onFulfilled`就会透传
+如果`.then()`这样调用没有传入`onFulfilled`就会透传，直到遇到有回调的then方法  
+`.catch()`就和then不同，如果前面的Promise Reject了，就会去找有没有调用catch方法，会跳过之间的所有`then()`（注意是没有添加 `onRejected` 回调的`.then()`）
 
 # 自己实现一个`MyPromise`
 `Promise`是异步的，关键在于如何实现"异步"的功能。不阻塞主线程的执行，这里自己实现使用`queueMicrotask`来执行`resolve`和`reject`  
