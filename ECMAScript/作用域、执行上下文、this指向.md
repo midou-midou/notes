@@ -108,3 +108,7 @@ funcScope()
 ## 领域、Agent、执行上下文间关系
 
 Agent可以跨领域，在领域之间切换。执行上下文是在领域中的
+
+## this指向
+
+[Click Link this指向](./call、apply、bind.md)
