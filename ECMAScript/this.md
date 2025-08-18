@@ -192,12 +192,10 @@ arrow() // {}
 绝了，因为箭头函数是定义时形成封闭词法环境，那会儿的this为`{}`空对象，见上文  
 `foo`调用时执行上下文为全局执行上下文，全局执行上下文为`globalThis`
 
-# 改变普通函数词法环境的this指向
+## 改变函数词法环境的this指向
 
-js中的函数：普通函数，箭头函数，构造函数，类静态函数
-
-## call、apply
-### 简介
+### call、apply
+#### 简介
 可以在函数调用的时候传入一个`context`上下文参数以及`普通参数args`   
 是`Function`下面的方法，调用要通过`.`调用
 
@@ -206,7 +204,7 @@ func.call(context, arg1, arg2, ...)
 func.apply(context, args)
 ```
 
-### 区别
+#### 区别
 `call`接收多个参数“arg”等作为函数的参数，而`apply`接收一个类数组对象`args`作为参数
 
 ```JavaScript
@@ -230,11 +228,11 @@ worker.slow = decorator(worker.slow);
 alert( worker.slow(2) ); // 输出 20
 ```
 
-### 针对不同函数
-
+#### 针对不同函数
+* 普通函数：上面的例子已经展示了
 * 箭头函数：传入的`thisArg`无效，箭头函数中的this还是指向创建环境
 
-# bind
+### bind
 返回一个新的函数，可以指定这个函数执行上下文中的this指向，俗称“绑定”
 
 ```js
@@ -243,8 +241,54 @@ alert( worker.slow(2) ); // 输出 20
 
 ```
 
+## 类 Class
+js里面，类可以用两种方式表示
+```js
+// 函数
+function foo() {
+  this.bar = 'bar'
+}
 
+// 类
+class Foo{
+  constructor() {
+    this.bar = 'bar'
+  }
+}
+```
 
+### 构造函数 constructor
+> 函数式写法得用原型链，参考原型链章节吧，这里只说类的 
 
+使用`new`创建实例，this指向都是这个类实例
+* 函数式构造函数：`foo.prototype.contructor = foo`（也就是它自身嘛）
+* 类式：`constructor()`
+
+这里面的this一定指向构造的这个新实例（新对象）
+
+#### super
+类的`constructor`函数中可以调用父类的`super`函数，也可以使用`super.`去调用父类的静态方法，或静态属性  
+其实是换了名字的this
+
+## 方法
+那方法里用到this，怎么找到他的this指向呢？因为方法都是 **实例的"."调用**所以又回到上面说的this指向去了（指向这个对象）
+
+### 静态方法
+静态方法中不能访问普通属性，但可以访问静态属性
+
+```js
+class Foo{
+  static bar = 'bar'
+  
+  static getBar() {
+    console.log(this.bar);
+  }
+}
+
+Foo.getBar() // 输出：bar
+
+```
+
+同样，可以用`super`访问父类的静态方法及属性
 
 
