@@ -1,75 +1,51 @@
-## 1. webpack是什么
+# webpack
+
+## 概念
 
 按照官方的定义：
 
 webpack是一种静态资源的打包器。比如说有两个模块都通过CJS或者是ESM引入了一些js库，通过webpack就可以将引入的这些js库打包到bundle中去。再比如，要通过require的方式引入一个非js的文件，也可以通过webpack来转换为可以让其直接引用的模块
 
-其实说白了，就是处理前端资源管理、打包的工具，但是`webpack`只能处理`js`格式的文件，处理不了其他格式的文件，如果要处理其他格式的文件，就需要`loader`
+其实说白了，就是处理前端资源、管理、打包的工具，但是`webpack`只能处理`js`和`json`格式的文件，处理不了其他格式的文件，如果要处理其他格式的文件，就需要`loader`
 
 ![https://static.xuyanshe.club/img/20210708121523.png](webpack/20210708121523.png)
 
-## 2. webpack中的入口input、出口output、loader、plugin各个都是些什么
+## 术语
 
-- 入口`input`：webpack构建模块依赖图的起点，webpack会从这里开始打包模块需要的静态资源文件
+- `Entry`（入口）：webpack编译模块依赖图的起点，webpack会从这里开始打包模块需要的静态资源文件
 
-- 出口`output`：webpack打包后的bundle的输出位置和名字
+- `Output`（出口）：webpack打包后的bundle的输出位置和名字
 
-- `loader`：能让webpack处理各种各样的文件的工具或者说是模块，比如React的JSX，就需要一个react-loader来进行处理
+- `Loaders`：能让webpack处理各种各样的文件的工具或者说是模块，比如React的JSX，就需要一个react-loader来进行处理
 
-- `plugin`：拓展webpack的一些插件，常用的会紧接着补充
+- `Plugins`：可以完成各种打包工作中的事情，比如注入环境变量，压缩bundle等
+- `module`（模块）：是webpack内部的类型，包括esm、cjs等定义的模块，同时，引入的css、图片等资源文件都会成为webpack模块
+- `chunk`：webpack编译过程中的中间产物，最后要交由转换生成最终的bundle
+- `bundle`：webpack打包后的最终生成产物
 
-## 3. webpack中的loader
+## 流程
 
-loader可以让webpack打包各种各样的文件，img，ttf，css，jsx等等。在使用这些资源的时候可以直接的import到相应的模块中去。在官方文档中将一个文件引入另一个文件这种关系称之为依赖关系。webpack可以自动的生成一张各种文件之间依赖关系的图（依赖图）
+1. 读取合并配置
+2. 使用配置创建编译器
+3. 插件注册
+4. 编译器从入口文件开始编译（可能会有一些插件执行Hook）
+5. 使用loader处理入口文件
+6. 生成ast语法树
+7. 通过AST收集依赖
+8. 解析依赖执行
+9. 再次使用loader处理文件，生成语法树，收集依赖这个过程
+10. 编译完毕（可能还有插件Hook执行）
+11. 编译产物转换成最终产物，可以在环境运行的
 
----
+其中loader和plugin的执行时机是不一样的
 
-首先，我创建了一个项目
+## 模块解析
+* 绝对路径解析
+* 相对路径解析
+* 模块文件夹解析
 
-![https://static.xuyanshe.club/img/20210709040442.png](webpack/20210709040442.png)
+模块文件夹找包还是要看package.json文件是否存在，并且检查webpack配置中的`resolve.exportsFields`（和package.json的exports字段对应）和`resolve.mainFields`（和package.json的main、browser字段对应）
 
-只要关心`app`文件夹和`public`文件夹以及`webpack.config.js`文件
+## 模块联邦 Module Federation
 
-app文件夹中的`entry.js`代码
-
-```JavaScript
-import greet from './greet'
-import Image from '../res/tetris.png'
-
-const ImageDom = document.createElement('img');
-ImageDom.src = Image;
-
-document.getElementById("container").appendChild(greet());
-document.getElementById("container").appendChild(ImageDom);
-```
-
-我的目标是直接通过`import`引入一张图片，图片在res文件夹下。现在就需要`fs-loader`来完成这个任务了
-
-在`webpack.config.js`中要这样配置
-
-```JavaScript
-module.exports={
-    entry:__dirname+"/app/entry.js",   //入口文件
-    output:{                           
-        path:__dirname+"/public",      //输出文件的存放位置
-        filename:"bundle.js"           //输出文件的名称
-    },
-    module:{
-        rules:[
-        {
-            test: /\.(pngsvgjpggif)$/,
-            use: [
-                'file-loader'
-                ]
-        }
-}
-```
-
-`module`是要使用的`webpack`模块，`rules`是对应的`*-loader`匹配的规则，里面`test`（条件）可以填写正则表达式，字符串等
-
-`use`为loader的入口，表示你要用什么loader来处理
-
-这样就很容易的完成了`webpack`的配置及简单的使用
-
-
-
+微前端解决方案
