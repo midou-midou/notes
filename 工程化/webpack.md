@@ -80,19 +80,65 @@ sideEffects（副作用）配置：里面匹配到的文件不参与Tree-shaking
 
 热更新需要搭配`webpack-dev-server`，且在webpack的config中添加配置
 
-### 过程
-浏览器环境
-* 浏览器会问HMR Runtime运行时（webpack-dev-server给浏览器插入的，在浏览器中运行），是否有更新
-* 浏览器HMR运行时会异步下载更新
-* HMR运行时通知浏览器更新
-* 浏览器询问是否要安装更新
-* HMR运行时同步回复浏览器可以安装
+```js
+module.exports = {
+  entry: __dirname + "/src/index.js",
+  // 配置hmr
+  devServer: {
+    hot: true,
+  },
+  output: {
+    path: __dirname + "/dist",      //输出文件的存放位置
+    filename: "[name].[contenthash].js"
+  },
+  optimization: {
+    runtimeChunk: 'single', // 分离出webpack浏览器加载的热更新client的代码
+    moduleIds: 'deterministic', // 使用算法压缩 vendors的
+    splitChunks: {
+      // 分离node_modules中引入的第三方lib
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
+}
+```
+**PS. 注意**  
 
-webpack的compiler会更新资源清单manifest（模块id和模块文件的映射表），之后去更新chunk  
-但要注意，更新chunk得要求你打包后要分成chunk，不能打到一个bundle里面  
+- 必须分包，不分包打包输出一个bundle就不用热更新了，因为修改文件每次bundle都会变
+- 要分离runtime运行时代码，因为HMR的原理，运行时代码每次都会变动，如果打到和主模块一个bundle中，主模块内容每次都要变化
+
+### 过程图
+![alt text](./webpack/webpackhmr.png)
+
+### 过程
+#### 浏览器环境
+
+- 浏览器会问HMR Runtime运行时（webpack-dev-server给浏览器插入的，在浏览器中运行），是否有更新
+- 浏览器HMR运行时会异步下载更新
+- HMR运行时通知浏览器更新
+- 浏览器询问是否要安装更新
+- HMR运行时同步安装更新
+
+#### 细节 
 
 HMR运行时给有两个方法来管理模块更新，`check`和`apply`，`check`用来请求资源清单，请求下来的清单会和已经在运行时的模块对比，要更新的模块会提前下载，运行时状态变为`ready`  
-`apply`方法会标记所有更新了的模块为`无效的`，冒泡便利每一个模块，检查是否有处理更新方法`update handler`，直到入口文件（entey point），之后所有的`module.hot.accept()`也就是处理更新的方法都会执行，也就是执行模块更新，更新后，运行时状态变为`idle`
+`apply`方法会标记所有更新了的模块为`无效的`，冒泡便利每一个模块，检查是否有处理更新方法`update handler`，直到入口文件（entey point），之后所有的`module.hot.accept()`也就是处理更新的方法都会执行，也就是执行模块更新，更新后，运行时状态变为`idle`。如果直到入口文件，都没有任何的`update handler`就会触发全局的更新了  
+一般来说，不需要手动在自己的模块里实现HMR的更新逻辑
+
+#### webpack服务器
+
+- 服务器得监听文件改动，compiler生成新的manifest，新的模块代码文件
+- 通过websocket，和HMR客户端联系，发送消息给客户端通知更新的模块
+- 之后HMR客户端会请求manifest，新模块文件，要发送给HMR客户端
+
+![alt text](./webpack/hmrwsmsg.png)
+
+webpack服务器向客户端发送的消息
 
 ## 模块联邦 Module Federation
 
