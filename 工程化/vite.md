@@ -4,6 +4,11 @@
 
 # 原理
 
+## 前置概念
+
+### 模块图 ModuleGraph
+
+
 ## 开发
 
 对应 `vite 或 vite dev` 命令，vite要开启一个后端的http服务器，来处理浏览器的资源请求，返回给浏览器对应的资源。且使用ES6的js模块系统，不同于webpack自己实现模块
@@ -12,7 +17,6 @@
 
 1. 使用配置创建httpserver `_createServer`（服务端）
    - 解析配置
-   - 创建和vite client（浏览器端）的websocket链接
    - 根据配置创建文件监听器（`server.watch`）
    - 创建插件容器、注册插件
    - 文件监听器注册文件修改事件，`change`、`add`、`unlink`
@@ -35,6 +39,8 @@
 
 ## HMR
 热模块替换
+
+
 
 ## 打包
 
