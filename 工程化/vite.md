@@ -6,8 +6,67 @@
 
 ## 前置概念
 
-### 模块图 ModuleGraph
+### 模块图 ModuleGraph 模块节点 ModuleNode
 
+- **模块节点 ModuleNode**：用于描述在开发服务器和生产打包阶段中，项目中的js文件和css文件，包含这些文件的路径信息，类型，热更新中，引入当前文件的模块，接收热更新的其他模块等信息
+
+```js
+export class ModuleNode {
+  url: string // 原始请求 url
+  id: string | null = null // 文件绝对路径 + query
+  file: string | null = null // 文件绝对路径
+  type: 'js' | 'css'
+  info?: ModuleInfo
+  meta?: Record<string, any> // resolveId 钩子返回结构的元数据
+  importers = new Set<ModuleNode>() // 该模块的引用方
+  importedModules = new Set<ModuleNode>() // 该模块所依赖的模块
+  acceptedHmrDeps = new Set<ModuleNode>() // 接收热更新的模块
+  acceptedHmrExports: Set<string> | null = null
+  importedBindings: Map<string, Set<string>> | null = null
+  isSelfAccepting?: boolean // 是否为 接受自身模块更新  
+  transformResult: TransformResult | null = null // 经过 transform 钩子编译后的结果
+  lastHMRTimestamp = 0 // 上一次热更新时间戳
+  lastInvalidationTimestamp = 0
+}
+```
+
+- **模块图 ModuleGraph**：用于记录多个模块节点，记录模块和url、id（是文件的磁盘绝对路径）等信息和模块节点的映射关系
+
+```js
+export class ModuleGraph {
+  // url 和模块的映射
+  urlToModuleMap = new Map<string, ModuleNode>()
+  // id 和模块的映射
+  idToModuleMap = new Map<string, ModuleNode>()
+  // 文件和模块的映射
+  fileToModulesMap = new Map<string, Set<ModuleNode>>()
+  // /@fs 的模块
+  safeModulesPath = new Set<string>()
+
+  invalidateModule(mod: ModuleNode, seen: Set<ModuleNode> = new Set()): void {
+    // ...
+  }
+
+  /**
+   * 文件修改事件
+   */
+  onFileChange(file: string): void {
+    // ...
+  }
+  
+  // 更新模块信息
+  async updateModuleInfo()(
+    mod: ModuleNode,
+    importedModules: Set<string | ModuleNode>,
+    acceptedModules: Set<string | ModuleNode>,
+    isSelfAccepting: boolean,
+    ssr?: boolean
+  ): Promise<Set<ModuleNode> | undefined> {
+    // ...
+  }
+}
+```
+模块图会在`_createServer`中创建，启动vite服务器时创建一个空的模块图。当浏览器发起入口文件资源请求时，transform中间件会调用插件`vite:import-analysis`分析模块关系，调用`updateModuleInfo`方法更新模块图
 
 ## 开发
 
@@ -34,13 +93,32 @@
      - 浏览器请求的是/src/main.js这个url，vite中定义了模块图这个对象，里面有url和磁盘文件的映射表，通过请求的url拿到main.js真实文件内容返回浏览器
      - 之后main.js头部要请求style.css，请求继续通过此中间件处理，要把`import './style.css'`转换成`import '绝对路径的style.css'`（`vite:import-analysis`这个插件提供的功能）
      - 所以说，这就是transformMiddleware中间件完成的工作，其实是中间件代码运行的过程中调用了注册的插件的transform Hook，同样，如果引入了别的.vue文件或者.js等文件，也是同样的处理方式
-     - 还有插件的transform Hook是转换模板文件的，转换成js
+     - 还有插件的transform Hook是转换模板文件的，转换成js，比如.vue转换等
 3. 这样一来，所有文件都由vite服务器处理并返回给浏览器了，浏览器渲染显示了
 
 ## HMR
 热模块替换
 
+### 流程
 
+在上文的创建vite服务器阶段，会返回给浏览器HMR client（下文称浏览器client）相关的js文件，用于接收服务端发送的ws消息，下文会提到
+
+1. vite服务器监听到项目中有文件修改
+2. vite中使用的chokidar发送`change`事件，触发订阅此事件的回调
+3. 执行注册插件的`watchChange`Hook
+4. 老模块标记失活（invalid）
+5. 执行`handleHMRUpdate`方法
+   - 修改的文件如果是vite.config文件，环境变量记录文件或者vite.config引入的依赖，就要重启vite服务器（毕竟配置变了）
+   - 修改了浏览器client，要通知客户端刷新浏览器
+   - 执行插件的`handleHotUpdate`Hook，和`hotUpdate`Hook（这个Hook是为了兼容，vite会提示警告）
+   - 如果修改了.html文件，就通知浏览器刷新
+   - 服务器发送`update`消息：下面可能会进行递归操作，简要流程：寻找更新边界（找到能处理模块更新的模块就是此次更新的边界）-> 模块要么自己处理自己更新，要么要找下游模块有没有能处理更新的（接收更新模块）-> 如果没找到边界，就要做浏览器刷新
+     - 比如更新HelloWorld.vue文件，.vue在HMR中被转换为为“自接受更新模块”（可以自己处理自己的更新），边界为自身，所以不用再找下游模块接收更新，之后向client发送`update`消息，内容大致为“请更新HelloWorld.vue”
+     - foo.js是HelloWorld.vue引入，不是自接收模块，找到下游导入他的.vue文件，去执行foo.js的更新，发送给client的消息也是“请更新HelloWorld.vue”，因为模块边界为HelloWorld
+     - main.js修改就要执行浏览器刷新
+6. 客户端接收
+   - 全刷新的消息，就刷新浏览器
+   - `update`消息，里面会有要执行更新的模块，client会动态插入（`import()`）
 
 ## 打包
 
