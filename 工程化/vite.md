@@ -124,8 +124,8 @@ export class ModuleGraph {
 
 ### 流程
 
-1. 解析配置
-2. 找到注册在打包阶段的插件plugins，执行插件Hooks
-3. 使用rollup打包
+1. 解析配置：解析vite.config.js配置，最终返回一个对象，属性为配置中的配置项。主要解析`build`配置项下的配置
+2. 找到注册在打包阶段(`buildApp`)的插件plugins，执行插件Hooks
+3. 解析出rollup相关配置，调用rollup打包，输出相关信息到控制台
 
 
