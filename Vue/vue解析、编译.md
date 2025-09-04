@@ -27,17 +27,16 @@ AST数据要通过vue代码生成器生成最终的**渲染函数**，渲染函�
 vue中的元素存在vue定义的很多属性，比如绑定，v-if，插槽等。针对每一个特殊属性都有对应的生成器生成对应代码
 
 下面仅展示部分元素，属性的代码生成
-- v-for：生成列表，每一项创建一个VNode
+- v-for：生成列表，列表每一项都会创建一个VNode（v-for列表渲染）
 ```js
 //  <div v-for="(item, index) in 5" :key="index"> 
 //    {{ item }}
 //  </div>
 
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (_openBlock(true), _createElementBlock(_Fragment, null, _renderList($setup.items, (item, index) => {
-    return (_openBlock(), _createElementBlock("div", { key: index }, _toDisplayString(item), 1 /* TEXT */))
-  }), 128 /* KEYED_FRAGMENT */))
-}
+// 简化后的关键代码
+_renderList($setup.items, (item, index) => {
+  return (_openBlock(), _createElementBlock("div", { key: index }, item, 1))
+})
 ```
 - v-if：生成的都是js代码，生成一个三元表达式块就可以，块里面有对应不同判断条件下创建不同VNode的代码（毕竟写v-if指令也是条件渲染，对应不同元素）
 ```js
@@ -48,14 +47,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
 //    No Odd
 //  </div>
 
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (_openBlock(), _createElementBlock(_Fragment, null, [
-    _cache[0] || (_cache[0] = _createElementVNode("div", null, "If Condition Block", -1 /* CACHED */)),
-    ($setup.isSecondOdd)
-      ? (_openBlock(), _createElementBlock("div", _hoisted_1, " Odd "))
-      : (_openBlock(), _createElementBlock("div", _hoisted_2, " No Odd "))
-  ], 64 /* STABLE_FRAGMENT */))
-}
+// 简化后的关键代码
+($setup.isSecondOdd)
+  ? (_openBlock(), _createElementBlock("div", _hoisted_1, " Odd "))
+  : (_openBlock(), _createElementBlock("div", _hoisted_2, " No Odd "))
 ```
 
 
