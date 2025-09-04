@@ -27,64 +27,78 @@ AST数据要通过vue代码生成器生成最终的**渲染函数**，渲染函�
 vue中的元素存在vue定义的很多属性，比如绑定，v-if，插槽等。针对每一个特殊属性都有对应的生成器生成对应代码
 
 下面仅展示部分元素，属性的代码生成
-- 静态元素：会生成`_m()`包裹的块  
-  ```js
-  function genStatic (el: ASTElement, state: CodegenState): string {
-    el.staticProcessed = true
-    state.staticRenderFns.push(`with(this){return ${genElement(el, state)}}`)
-    return `_m(${
-      state.staticRenderFns.length - 1
-    }${
-      el.staticInFor ? ',true' : ''
-    })`
-  }
+- v-for：生成列表，每一项创建一个VNode
+```js
+//  <div v-for="(item, index) in 5" :key="index"> 
+//    {{ item }}
+//  </div>
 
-  // renderStatic
-  _m: (index: number, isInFor?: boolean) => VNode | VNodeChildren;
-  ```
-- v-if：简化了一下代码，可以看到最后生成一个三元表达式
-  ```js
-  function genIfConditions (
-      conditions: ASTIfConditions,
-      state: CodegenState,
-      altGen?: Function,
-      altEmpty?: string
-    ): string {
-      const condition = conditions.shift()
-      if (condition.exp) {
-        return `(${condition.exp})?${
-          condition.block
-        }:${
-          genIfConditions(conditions, state, altGen, altEmpty)
-        }`
-      }
-    }
-  ```
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(true), _createElementBlock(_Fragment, null, _renderList($setup.items, (item, index) => {
+    return (_openBlock(), _createElementBlock("div", { key: index }, _toDisplayString(item), 1 /* TEXT */))
+  }), 128 /* KEYED_FRAGMENT */))
+}
+```
+- v-if：生成的都是js代码，生成一个三元表达式块就可以，块里面有对应不同判断条件下创建不同VNode的代码（毕竟写v-if指令也是条件渲染，对应不同元素）
+```js
+//  <div v-if="isSecondOdd">
+//    Odd
+//  </div>
+//  <div v-else>
+//    No Odd
+//  </div>
+
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _cache[0] || (_cache[0] = _createElementVNode("div", null, "If Condition Block", -1 /* CACHED */)),
+    ($setup.isSecondOdd)
+      ? (_openBlock(), _createElementBlock("div", _hoisted_1, " Odd "))
+      : (_openBlock(), _createElementBlock("div", _hoisted_2, " No Odd "))
+  ], 64 /* STABLE_FRAGMENT */))
+}
+```
+
 
 最终生成的
 
 # 解析 -> 编译
 
 vue源码，比较容易看懂，没有精简
-```js
-// main src/compiler/index.js
-export const createCompiler = createCompilerCreator(function baseCompile (
-  template: string,
-  options: CompilerOptions
-): CompiledResult {
-  // 这一步对应的 解析
-  const ast = parse(template.trim(), options)
-  // 这一步是优化 vue会标记永不改变的节点为静态节点，静态节点不需要反复对应的渲染函数，第一次生成好了就缓存起来
-  if (options.optimize !== false) {
-    optimize(ast, options)
-  }
-  // 编译，实则为渲染函数生成
-  const code = generate(ast, options)
-  return {
+```ts
+export function baseCompile(
+  source: string | RootNode,
+  options: CompilerOptions = {},
+): CodegenResult {
+  // 合并配置
+  const resolvedOptions = extend({}, options, {
+    prefixIdentifiers,
+  })
+
+  // 源代码字符串解析为ast语法树
+  const ast = isString(source) ? baseParse(source, resolvedOptions) : source
+
+  // 转换 理解为vue ast要转换为标准的js ast，html ast。并且会静态分析，缓存ast等操作
+  const [nodeTransforms, directiveTransforms] =
+    getBaseTransformPreset(prefixIdentifiers)
+  transform(
     ast,
-    render: code.render,
-    staticRenderFns: code.staticRenderFns
-  }
-})
+    {
+      nodeTransforms,
+      directiveTransforms,
+      ...TransformOptions
+    }
+  )
+
+  // 代码生成 生成js代码
+  return generate(ast, resolvedOptions)
+}
 
 ```
+
+## 使用vite构建vue项目
+
+这里只针对代码解析+编译的过程，不会从浏览器请求代码开始说起
+
+### vite:vue-plugin
+
+会在开发服务器、打包阶段都有调用，目的是将vue文件转换成对应的js代码
