@@ -24,6 +24,22 @@ vue会分析节点是否为静态节点，静态节点不会改变，意味着�
 
 AST数据要通过vue代码生成器生成最终的**渲染函数**，渲染函数都是js函数，可以直接执行。生成的渲染函数相当于上图中的**目标代码**
 
+## SFC编译
+SFC中的`<template>、<script>、<style>`标签会有不同的编译器编译，最终生成对应的js文件
+
+### template
+
+
+
+### script
+
+SFC中，仅允许一个带有`export default`默认导出的`script`标签。例外的是，允许两个标签，一个是`script setup`标签，一个是不带默认导出的`script`标签，vue会自动把`script`标签中定义的东西合并到`setup`导出中去
+
+针对import导入部分，defineProps等这些宏定义，变量声明，函数声明，函数声明等都要生成对应js代码，最终生成的js代码
+
+### style
+
+
 vue中的元素存在vue定义的很多属性，比如绑定，v-if，插槽等。针对每一个特殊属性都有对应的生成器生成对应代码
 
 下面仅展示部分元素，属性的代码生成
@@ -72,7 +88,7 @@ export function baseCompile(
   // 源代码字符串解析为ast语法树
   const ast = isString(source) ? baseParse(source, resolvedOptions) : source
 
-  // 转换 理解为vue ast要转换为标准的js ast，html ast。并且会静态分析，缓存ast等操作
+  // 转换 理解为vue ast（里面包含一些vue指令v-if等要转换成js代码）要转换为标准的js ast，html ast。并且会静态ast节点缓存（永远不可能改变的元素）等操作
   const [nodeTransforms, directiveTransforms] =
     getBaseTransformPreset(prefixIdentifiers)
   transform(
@@ -90,10 +106,13 @@ export function baseCompile(
 
 ```
 
+SFC文件中，官方说必须包含三个必要的标签`<template>、<script>、<style>`，但编译检测只要包含其中两个即可
+
 ## 使用vite构建vue项目
 
 这里只针对代码解析+编译的过程，不会从浏览器请求代码开始说起
 
 ### vite:vue-plugin
 
-会在开发服务器、打包阶段都有调用，目的是将vue文件转换成对应的js代码
+会在开发服务器、打包阶段都有调用，目的是将vue文件转换成对应的js代码文件。开发阶段有`transform`的Hook，打包阶段有`build`相关Hook。都会编译SFC文件
+同时这个插件也会生成HMR所需的代码
