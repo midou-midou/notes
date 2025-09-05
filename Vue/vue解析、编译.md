@@ -50,7 +50,7 @@ vue中的元素存在vue定义的很多属性，比如绑定，v-if，插槽等�
 //  </div>
 
 // 简化后的关键代码
-_renderList($setup.items, (item, index) => {
+_renderList(5, (item, index) => {
   return (_openBlock(), _createElementBlock("div", { key: index }, item, 1))
 })
 ```
