@@ -1,6 +1,7 @@
 # 思路
 vue的模板解析和编译的过程可以简化为下面的图片
 
+![alt text](./compiler/compiler.png)
 
 这里都以vue3为例
 
