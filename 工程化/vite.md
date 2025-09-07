@@ -186,10 +186,6 @@ export class ModuleGraph {
    ![alt text](./vite/hmrhelloworldcode.png)
    (上面两张图分别展示了：client接收到ws消息、更新helloworld.vue文件时，作为自更新模块拿到边界)
      - foo.js是HelloWorld.vue引入，不是自接收模块，找到下游导入他的.vue文件，去执行foo.js的更新，发送给client的消息也是“请更新HelloWorld.vue”，因为模块边界为HelloWorld
-     ```js
-
-
-     ```
      - main.js（项目入口文件）修改就要执行浏览器刷新
 6. 客户端接收
    - 全刷新的消息，就刷新浏览器
