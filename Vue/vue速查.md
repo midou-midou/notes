@@ -7,7 +7,7 @@
 
 ## 定义响应式变量
 
-响应式数据原理，[参加](./响应式原理.md)
+响应式数据原理，[参见](./响应式原理.md)
 
 下面都是vue3的
 
@@ -863,6 +863,79 @@ SFC（Single-File Component）单文件组件，一般是一个.vue结尾的文�
 
 ### 注册组件
 
+#### 全局注册
+
+```js
+// vue3
+import MyComponent from './App.vue'
+
+app.component('MyComponent', MyComponent)
+
+// vue2
+Vue.component('component-c', { /* ... */ })
+
+new Vue({ el: '#app' })
+```
+
+#### 局部注册
+
+```js
+// vue3 直接在使用的组件中引入即可
+<script setup>
+import ComponentA from './ComponentA.vue'
+</script>
+
+// vue2 必须通过components属性注册
+import ComponentA from './ComponentA.vue'
+
+export default {
+  components: {
+    ComponentA
+  },
+}
+```
+
+#### vue2 组件实例原型链
+
+关系：**vue构造->vue组件->vue实例**
+
+```JavaScript
+//vue构造
+Vue.extend({
+  props: [],
+  data: function() {
+    return {}
+  },
+  template: ""
+});
+//vue组件
+Vue.component("mycomponent", {
+  props: [],
+  data: function() {
+    return {}
+  },
+  template: ""
+});
+//vue实例
+new Vue({
+  el: "",
+  data: {}
+});
+```
+
+这三者之间类似于继承 重要的内置关系：
+
+```JavaScript
+VueComponent.prototype.__proto__ === Vue.prototype
+```
+
+![https://static.xuyanshe.club/img/1649682382699-9140eddd-44e4-4464-b2c1-1910e01e8c29.png](组件/1649682382699-9140eddd-44e4-4464-b2c1-1910e01e8c29.png)
+
+上面一行代码的图片解释
+
+#### 为什么要这么做？
+
+让组件实例对象（vc）可以访问到 Vue原型上的属性、方法
 
 ## 模版
 
