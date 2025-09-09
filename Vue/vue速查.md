@@ -1,8 +1,5 @@
-# vue 知识速查
-
 # 目录
 
-- [vue 知识速查](#vue-知识速查)
 - [目录](#目录)
 - [vue 语法](#vue-语法)
   - [定义响应式变量](#定义响应式变量)
@@ -95,7 +92,7 @@
   - [几个工具函数](#几个工具函数)
   - [Fragment组件：`<Fragment>`](#fragment组件fragment)
   - [Teleport组件：`<Teleport></Teleport>`](#teleport组件teleportteleport)
-  - [suspend组件](#suspend组件)
+  - [Suspend组件](#suspend组件)
 - [vue2 中已过时特性](#vue2-中已过时特性)
   - [过滤器](#过滤器)
     - [语法](#语法)
@@ -1656,12 +1653,13 @@ export default {
 
 可以将组件传送到指定的位置（标签名，css选择器）
 
-## suspend组件
+## Suspend组件
 
-作用和react的`suspend`组件一样，定义一个异步加载的组件，底层为一个插槽，可以两个组件，一个组件是保底机制，在第一个组件加载不出来时挂载到页面
+作用和react的`Suspend`组件一样，定义一个异步加载的组件，底层为一个插槽，`name="fallback"`插槽的组件是保底机制，在第一个组件加载不出来时挂载到页面
 
 ```JavaScript
-import {defineAsyncComponent} from 'vue'const Child = defineAsyncComponent(()=>import('./components/Child.vue'))
+import {defineAsyncComponent} from 'vue'
+const Child = defineAsyncComponent(()=>import('./components/Child.vue'))
 ```
 
 ```HTML
@@ -1669,10 +1667,10 @@ import {defineAsyncComponent} from 'vue'const Child = defineAsyncComponent(()=>i
   <div class="app">
     <h3>我是App组件</h3>
     <Suspense>
-      <template v-slot:default>
+      <template>
         <Child/>
       </template>
-      <template v-slot:fallback>
+      <template #fallback>
         <h3>加载中.....</h3>
       </template>
     </Suspense>
@@ -1708,7 +1706,7 @@ import {defineAsyncComponent} from 'vue'const Child = defineAsyncComponent(()=>i
         return dayjs(value).format(str)
       },
       mySlice(value) {
-        return value.slice(',')
+        return value.slice('，')
       }
     }
   })
