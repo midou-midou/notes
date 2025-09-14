@@ -91,7 +91,8 @@ export function baseCompile(
   // 源代码字符串解析为ast语法树
   const ast = isString(source) ? baseParse(source, resolvedOptions) : source
 
-  // 转换 理解为vue ast（里面包含一些vue指令v-if等要转换成js代码）要转换为标准的js ast，html ast。并且会静态ast节点缓存（永远不可能改变的元素）等操作
+  // 转换 理解为vue ast（里面包含一些vue指令v-if等要转换成js代码）要转换为标准的js ast，html ast
+  // 并且会缓存静态ast节点（永远不可能改变的元素）等操作
   const [nodeTransforms, directiveTransforms] =
     getBaseTransformPreset(prefixIdentifiers)
   transform(
