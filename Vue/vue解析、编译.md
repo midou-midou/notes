@@ -30,50 +30,143 @@ AST数据要通过vue代码生成器生成最终的**渲染函数**，渲染函�
 ## SFC编译
 SFC中的`<template>、<script>、<style>`标签会有不同的编译器编译，最终生成对应的js文件
 
-### template
-
-
-
 ### script
 
-SFC中，仅允许一个带有`export default`默认导出的`script`标签。例外的是，允许两个标签，一个是`script setup`标签，一个是不带默认导出的`script`标签，vue会自动把`script`标签中定义的东西合并到`setup`导出中去
+SFC中，仅允许一个带有`export default`默认导出的`script`标签。例外的是，允许两个`script`标签，一个是`script setup`标签，一个是不带默认导出的`script`标签，vue会自动把`script`标签中定义的东西合并到`setup`导出中去
 
 针对import导入部分，defineProps等这些宏定义，变量声明，函数声明，函数声明等都要生成对应js代码，最终生成的js代码
 
-### style
+vue sfc文件中的代码
+```js
+<script>
+import {clone} from 'lodash'
+export default {
+  setup() {
+    let foo = {prop: 'bar'}
+    let fooClone = clone(foo)
+    
+    return {
+      isSecondOdd: new Date().getSeconds() % 2 === 0,
+      fooSetup: fooClone
+    }
+  }
+}
+</script>
 
+```
+
+生成的代码
+```js
+import __vite__cjsImport0_lodash from "/node_modules/.vite/deps/lodash.js?v=8d62954f";
+const clone = __vite__cjsImport0_lodash["clone"]
+const _sfc_main = {
+    setup() {
+        let foo = {
+            prop: 'bar'
+        }
+        let fooClone = clone(foo)
+
+        return {
+            isSecondOdd: new Date().getSeconds() % 2 === 0,
+            fooSetup: fooClone
+        }
+    }
+}
+
+```
+
+
+### template
+
+`template`会生成对应的`render`函数，`render`函数中会描述`<template>`标签中的DOM结构
+
+sfc template标签中的代码
+```html
+<template>
+  <div>If Condition Block</div>
+  <div v-if="isSecondOdd">
+    Odd
+  </div>
+  <div v-else>
+    No Odd
+  </div>
+</template>
+```
+
+生成的渲染函数
+```js
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return (_openBlock(),
+    _createElementBlock(_Fragment, null, [_cache[0] || (_cache[0] = _createElementVNode("div", null, "If Condition Block", -1 /* CACHED */
+    )), ($setup.isSecondOdd) ? (_openBlock(),
+    _createElementBlock("div", _hoisted_1, " Odd ")) : (_openBlock(),
+    _createElementBlock("div", _hoisted_2, " No Odd "))], 64 /* STABLE_FRAGMENT */
+    ))
+}
+
+```
 
 vue中的元素存在vue定义的很多属性，比如绑定，v-if，插槽等。针对每一个特殊属性都有对应的生成器生成对应代码
 
-下面仅展示部分元素，属性的代码生成
+**下面仅展示部分元素，属性的代码生成**
+
 - v-for：生成列表，列表每一项都会创建一个VNode（v-for列表渲染）
-```js
-//  <div v-for="(item, index) in 5" :key="index"> 
-//    {{ item }}
-//  </div>
+  ```js
+  //  <div v-for="(item, index) in 5" :key="index"> 
+  //    {{ item }}
+  //  </div>
 
-// 简化后的关键代码
-_renderList(5, (item, index) => {
-  return (_openBlock(), _createElementBlock("div", { key: index }, item, 1))
-})
-```
+  // 简化后的关键代码
+  _renderList(5, (item, index) => {
+    return (_openBlock(), _createElementBlock("div", { key: index }, item, 1))
+  })
+  ```
 - v-if：生成的都是js代码，生成一个三元表达式块就可以，块里面有对应不同判断条件下创建不同VNode的代码（毕竟写v-if指令也是条件渲染，对应不同元素）
-```js
-//  <div v-if="isSecondOdd">
-//    Odd
-//  </div>
-//  <div v-else>
-//    No Odd
-//  </div>
+  ```js
+  //  <div v-if="isSecondOdd">
+  //    Odd
+  //  </div>
+  //  <div v-else>
+  //    No Odd
+  //  </div>
 
-// 简化后的关键代码
-($setup.isSecondOdd)
-  ? (_openBlock(), _createElementBlock("div", _hoisted_1, " Odd "))
-  : (_openBlock(), _createElementBlock("div", _hoisted_2, " No Odd "))
+  // 简化后的关键代码
+  ($setup.isSecondOdd)
+    ? (_openBlock(), _createElementBlock("div", _hoisted_1, " Odd "))
+    : (_openBlock(), _createElementBlock("div", _hoisted_2, " No Odd "))
+  ```
+
+
+### style
+
+`<style>`标签中的内容会生成成一个独立的`js`文件  
+我这里的demo项目的文件名是这个：`If.vue?vue&type=style&index=0&lang.css`  
+下面是生成的文件的代码（别看这个文件是.css结尾，但这个文件确是js类型文件）
+```js
+// 热更新部分的代码已去除
+
+const __vite__id = "C:/Users/lyh/Documents/vite-vue3-frontend-engineering/src/components/If.vue?vue&type=style&index=0&lang.css"
+
+const __vite__css = "\n.conditionClass{\r\n  width: 100%;\r\n  text-align: center;\r\n  color: brown;\n}\r\n"
+
 ```
 
+标签的类选择器和内联样式则是生成在`render`函数中，其实就是`_createElementBlock`函数的接收参数（属性）
 
-最终生成的
+生成的代码。可以看到下面的`_createElementVNode`接收的属性`class`和`style`
+```js
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return (_openBlock(),
+    _createElementBlock(_Fragment, null, [_cache[0] || (_cache[0] = _createElementVNode("div", {
+        class: "conditionClass",
+        style: {
+            "background-color": "aqua"
+        }
+    }, "If Condition Block", -1 /* CACHED */
+    ))
+    // ...其他生成的代码
+    ]))}
+```
 
 # 解析 -> 编译
 
