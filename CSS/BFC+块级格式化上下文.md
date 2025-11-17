@@ -36,7 +36,7 @@ BFC：根据张鑫旭CSS世界定义，BFC为一个“结界”，外部不能�
 
 • `display` 的值为 `table-cell`、`table-caption` 和 `inline-block` 中的任何一个
 
-• `position` 的值不为 `relative` 和 `static`
+• `position` 的值为 `absolute` 和 `fixed`
 
 `overflow: hidden`也不是没有缺点，比如设置了这个属性的BFC，结构是一个父元素包含一个子元素，这个子元素超出父元素的部分就会隐藏
 
