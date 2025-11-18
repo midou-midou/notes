@@ -47,6 +47,17 @@ WIP树在内存之中，current是显示在屏幕上的，需要用WIP树直接�
 
 ![alt text](./fiber/fiberTrees2.png)
 
-current树和WIP树都是在一个节点下的（FiberRootNode节点）
+current树和WIP树都是在一个节点下的（FiberRootNode节点），之间通过alternate属性来链接，旧 current 树的节点和 WIP 树节点通过此属性**互相指向**
 
+## 流程
 
+### 调和阶段 Reconciliation
+
+从 fiberRoot 节点开始，从上向下深度优先遍历创建，期间每一个节点调用`beginWork`方法  
+当碰到叶子节点，执行`completeWork`，之后就要回朔，如果存在 sibling 指针（兄弟节点）就返回兄弟节点执行`completeWork`方法，如果没有兄弟节点，就看有没有 return 指针，去找父节点  
+直到 fiberRoot 节点
+
+### 提交阶段 commit
+
+处理 uesEffect 副作用函数，为了性能副作用函数收集后会批量一次性执行  
+触发生命周期钩子
