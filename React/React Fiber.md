@@ -39,13 +39,13 @@ E = { return: C }
 #### 双缓存技术  
 WIP树在内存之中，current是显示在屏幕上的，需要用WIP树直接替换掉current树，这样屏幕上的DOM也就完成了更新等操作，这种在内存中构建并直接替换的技术叫做**双缓存**
 
-![alt text](./fiber/fiberTrees.png)
+![alt text](./fiber/fiberTrees.png)  
 这里开始时，指针指向的是current树，且新生成的WIP树已经在内存中就绪（右边绿色）
 
-![alt text](./fiber/fiberTrees1.png)
+![alt text](./fiber/fiberTrees1.png)  
 这时的current指针就指向了WIP树，WIP树已经根据老的current树完成了节点的更新，创建，复用等工作。直接用WIP作为新的current树
 
-![alt text](./fiber/fiberTrees2.png)
+![alt text](./fiber/fiberTrees2.png)  
 
 current树和WIP树都是在一个节点下的（FiberRootNode节点），之间通过alternate属性来链接，旧 current 树的节点和 WIP 树节点通过此属性**互相指向**
 
