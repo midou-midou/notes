@@ -88,7 +88,7 @@ String.prototype.getThis = getThis;
 原始值会在非严格模式下，this指向一个包装对象。严格模式下指向自身的值
 
 ## 回调
-回调的this指向决定"在于什么时候调用回调"函数
+回调的this指向是通过"在于什么时候调用回调"函数决定的
 
 但在`setTimeout`和`setInterval`中，普通函数做回调和箭头函数做回调有不同的表现
 ```js
@@ -101,6 +101,7 @@ setTimeout(function () {
 //   _idleTimeout: 1,
 //   _idlePrev: null,
 //   ....
+// 浏览器指向 window对象
 
 // 箭头函数
 setTimeout(() => {
@@ -114,7 +115,7 @@ setTimeout(() => {
 // 输出：globalThis
 ```
 
-再比如一个`Array.prototype`下的方法，接收回调，但回调调用时的this指向又这些API自己决定
+再比如一个`Array.prototype`下的方法，接收回调，但回调调用时的this指向由这些API自己决定
 
 ## 箭头函数
 箭头函数的this表现行为和普通函数不一样，箭头函数会在创建箭头函数时，在周围作用域创建一个封闭词法环境，封闭词法环境可以保证this指向是创建时的值，不会像其他函数在执行时可以更改this  
