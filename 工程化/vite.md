@@ -156,7 +156,7 @@ export class ModuleGraph {
      - vite服务器查看文件是否有缓存，如果没有要使用[协商缓存](../ECMAScript/缓存.md#协商缓存)
      - 浏览器请求的是/src/main.js这个url，vite中定义了模块图这个对象，里面有url和磁盘文件的映射表，通过请求的url拿到main.js真实文件内容返回浏览器
      ![模块图](./vite/moduleGraph.png)
-     - 之后main.js头部要请求style.css，请求继续通过此中间件处理，要把`import './style.css'`转换成`import '绝对路径的style.css'`（`vite:import-analysis`这个插件提供的功能，同时，这个插件还会分析除css文件外模块依赖关系，生成模块图，并更新。css文件模块关系由插件`vite:css-analysis`）
+     - 之后main.js头部要请求style.css，请求继续通过此中间件处理，要把`import './style.css'`转换成`import '绝对路径的style.css'`（`vite:import-analysis`这个插件提供的功能，同时，这个插件还会分析除css文件外模块依赖关系，生成模块图，并更新。css文件模块关系由插件`vite:css-analysis`生成）
      - transformMiddleware中间件完成的工作，其实是中间件代码运行的过程中调用了注册的插件的transform Hook，同样，如果引入了别的.vue文件或者.js等文件，也是同样的处理方式
      - 还有插件的transform Hook是转换模板文件的，转换成js，比如.vue转换等（`vite:vue`插件）
 3. 这样一来，所有文件都由vite服务器处理并返回给浏览器了，浏览器渲染显示了
