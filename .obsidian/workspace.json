@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4d76512057da050b",
+        "id": "4a42500b423960cc",
         "type": "tabs",
         "children": [
           {
-            "id": "d8ceec81eaa07e26",
+            "id": "c9d1a980e8530dda",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "ECMAScript/垃圾回收.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "垃圾回收"
             }
           }
         ]
@@ -90,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
+                "file": "计算机网络/OAuth.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的反向链接列表"
+              "title": "OAuth 的反向链接列表"
             }
           },
           {
@@ -146,43 +150,69 @@
               "icon": "lucide-list",
               "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的大纲"
             }
+          },
+          {
+            "id": "cff6691665c08ae8",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d8ceec81eaa07e26",
+  "active": "c9d1a980e8530dda",
   "lastOpenFiles": [
+    "ECMAScript/垃圾回收/垃圾回收-1765201965944.png",
+    "ECMAScript/垃圾回收/垃圾回收-1765201756105.png",
+    "ECMAScript/垃圾回收/垃圾回收-1765106010556.png",
+    "ECMAScript/垃圾回收/垃圾回收-1765105030993.png",
+    "ECMAScript/垃圾回收/垃圾回收-1765104253235.png",
+    "ECMAScript/垃圾回收",
+    "未命名.base",
+    "ECMAScript/垃圾回收.md",
+    "ECMAScript/垃圾回收-1765104069821.png",
+    "ECMAScript/image.png",
+    "ECMAScript/跨源.md",
+    "ECMAScript/未命名.md",
+    "计算机网络/OAuth.md",
+    "Vue/快速比对.md",
+    "计算机网络/jwt.md",
+    "计算机网络/http/https.png",
+    "计算机网络/http",
+    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
+    "ECMAScript/作用域、执行上下文、this指向.md",
+    "2025-11-22.md",
+    "计算机网络/TCP.md",
+    "Vue/路由.md",
     "Vue/双端比对.md",
     "ECMAScript/ES+Module、Common+JS.md",
     "ECMAScript/Export和Exposts.md",
-    "Vue/快速比对.md",
     "Vue/快速比对/delete.png",
     "Vue/快速比对/截屏2025-08-02 11.49.32.png",
     "Vue/快速比对/insert.png",
-    "Vue/快速比对/截屏2025-08-02 11.48.44.png",
-    "Vue/快速比对/move.png",
-    "Vue/快速比对/截屏2025-08-02 11.06.00.png",
-    "Vue/快速比对/截屏2025-08-02 10.07.42.png",
     "Vue/快速比对",
     "计算机网络/当在浏览器地址栏输入url后都发生了什么.md",
-    "Vue/双端比对/imperfect.png",
-    "Vue/双端比对/move.png",
     "Vue/双端比对",
-    "计算机网络/web/xysbtn-parsehtml9.png",
     "CSS/层叠.md",
     "CSS/布局.md",
     "Vue/Vue3.md",
@@ -192,18 +222,7 @@
     "Vue/生命周期.md",
     "ECMAScript/防抖、节流.md",
     "ECMAScript/闭包.md",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
     "ECMAScript/跨域问题.md",
-    "ECMAScript/缓存.md",
-    "ECMAScript/浏览器的事件循环.md",
-    "ECMAScript/宏任务+微任务.md",
-    "ECMAScript/同等依赖+peerDepencidency.md",
-    "ECMAScript/原型.md",
-    "ECMAScript/async、await.md",
-    "ECMAScript/call、apply、bind.md",
-    "ECMAScript/Worker.md",
-    "ECMAScript/Promise.md",
-    "ECMAScript/Fetch.md",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
     "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861",

@@ -1,5 +1,6 @@
 {
   "accentColor": "#1476d2",
   "cssTheme": "Things",
-  "monospaceFontFamily": "Fira Code"
+  "monospaceFontFamily": "Fira Code",
+  "translucency": true
 }
