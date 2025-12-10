@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4a42500b423960cc",
+        "id": "c0dddce6345e57fe",
         "type": "tabs",
         "children": [
           {
-            "id": "c9d1a980e8530dda",
+            "id": "cc2b448b10c08d07",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
+                "file": "ECMAScript/垃圾回收.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的大纲"
+              "title": "垃圾回收 的大纲"
             }
           },
           {
@@ -180,16 +180,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c9d1a980e8530dda",
+  "active": "cc2b448b10c08d07",
   "lastOpenFiles": [
     "ECMAScript/垃圾回收/垃圾回收-1765201965944.png",
-    "ECMAScript/垃圾回收/垃圾回收-1765201756105.png",
+    "ECMAScript/垃圾回收.md",
     "ECMAScript/垃圾回收/垃圾回收-1765106010556.png",
     "ECMAScript/垃圾回收/垃圾回收-1765105030993.png",
+    "ECMAScript/垃圾回收/垃圾回收-1765201756105.png",
     "ECMAScript/垃圾回收/垃圾回收-1765104253235.png",
     "ECMAScript/垃圾回收",
     "未命名.base",
-    "ECMAScript/垃圾回收.md",
     "ECMAScript/垃圾回收-1765104069821.png",
     "ECMAScript/image.png",
     "ECMAScript/跨源.md",
@@ -209,7 +209,6 @@
     "ECMAScript/Export和Exposts.md",
     "Vue/快速比对/delete.png",
     "Vue/快速比对/截屏2025-08-02 11.49.32.png",
-    "Vue/快速比对/insert.png",
     "Vue/快速比对",
     "计算机网络/当在浏览器地址栏输入url后都发生了什么.md",
     "Vue/双端比对",
