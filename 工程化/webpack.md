@@ -22,7 +22,6 @@ webpack是一种静态资源的打包器。比如说有两个模块都通过CJS�
 - `module`（模块）：是webpack内部的类型，包括esm、cjs等定义的模块，同时，引入的css、图片等资源文件都会成为webpack模块
 - `chunk`：webpack编译过程中的中间产物，最后要交由转换生成最终的bundle
 - `vendor`：webpack打包后的第三方库的代码，动态导入的
-
 - `bundle`：webpack打包后的最终生成产物
 
 ## 流程

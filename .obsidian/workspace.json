@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ECMAScript/垃圾回收.md",
+                "file": "Vue/渲染.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "垃圾回收"
+              "title": "渲染"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ECMAScript/垃圾回收.md",
+                "file": "Vue/渲染.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "垃圾回收 的大纲"
+              "title": "渲染 的大纲"
             }
           },
           {
@@ -182,8 +182,12 @@
   },
   "active": "cc2b448b10c08d07",
   "lastOpenFiles": [
-    "ECMAScript/垃圾回收/垃圾回收-1765201965944.png",
+    "工程化/vite.md",
+    "工程化/webpack.md",
+    "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
+    "ECMAScript/缓存.md",
     "ECMAScript/垃圾回收.md",
+    "ECMAScript/垃圾回收/垃圾回收-1765201965944.png",
     "ECMAScript/垃圾回收/垃圾回收-1765106010556.png",
     "ECMAScript/垃圾回收/垃圾回收-1765105030993.png",
     "ECMAScript/垃圾回收/垃圾回收-1765201756105.png",
@@ -219,9 +223,6 @@
     "CSS/BFC+块级格式化上下文.md",
     "Vue/数据监听_视.md",
     "Vue/生命周期.md",
-    "ECMAScript/防抖、节流.md",
-    "ECMAScript/闭包.md",
-    "ECMAScript/跨域问题.md",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
     "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861",
