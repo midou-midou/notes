@@ -1,16 +1,24 @@
 # async、await
 
-### async
+## async
 
 ### 概念：
 
 在函数前的一个关键字，一个标识。有此关键字的函数返回的值会自动的用一个`resolved`的`Promise`包装`Promise.resolve('xxx')`
 
-### await
+## await
 
 ### 概念：
 
-等待Promise的状态变为settle（也就是执行了这个Promise的`resolve`或者执行了这个Promise的`reject`）之后接收执行的结果
+提供一种中断和恢复程序执行的能力，中断的地方在`await`关键字的下面（**不是关键字后面！！**），如果后面是一个`Promise`，则等待Promise的状态变为`resolve`（也就是执行了这个Promise的`resolve`）之后接收执行的结果
+如果`await`后面跟随的不是一个`Promise`，是一个值，或者普通函数，那么就会按照普通函数执行，或者返回值
+```js
+let bar = await 'foo'
+// bar 的值是 foo
+
+let foo = await () => 'bar'
+// foo 的值是 bar
+```
 
 ### 注意：
 

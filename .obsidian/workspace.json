@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
+                "file": "CSS/布局.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "当在浏览器地址栏输入url后都发生了什么"
+              "title": "布局"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "工程化/vite.md",
+                "file": "CSS/布局.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "vite 的大纲"
+              "title": "布局 的大纲"
             }
           },
           {
@@ -170,7 +170,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -180,10 +180,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c26f7687a51a2c47",
+  "active": "cff6691665c08ae8",
   "lastOpenFiles": [
-    "计算机网络/TCP.md",
+    "CSS/布局/布局-1768461696020.png",
+    "ECMAScript/浏览器渲染.md",
+    "ECMAScript/事件循环.md",
+    "ECMAScript/原型.md",
+    "ECMAScript/async、await.md",
     "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
+    "计算机网络/TCP.md",
     "工程化/vite.md",
     "CSS/布局.md",
     "Vue/路由.md",
@@ -206,7 +211,6 @@
     "ECMAScript/垃圾回收-1765104069821.png",
     "ECMAScript/image.png",
     "ECMAScript/跨源.md",
-    "ECMAScript/未命名.md",
     "计算机网络/OAuth.md",
     "计算机网络/jwt.md",
     "计算机网络/http/https.png",
@@ -215,14 +219,10 @@
     "ECMAScript/作用域、执行上下文、this指向.md",
     "2025-11-22.md",
     "ECMAScript/ES+Module、Common+JS.md",
-    "ECMAScript/Export和Exposts.md",
     "Vue/快速比对/delete.png",
     "Vue/快速比对/截屏2025-08-02 11.49.32.png",
     "Vue/快速比对",
-    "计算机网络/当在浏览器地址栏输入url后都发生了什么.md",
     "Vue/双端比对",
-    "CSS/层叠.md",
-    "Vue/Vue3.md",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
     "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861",
