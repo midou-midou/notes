@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/布局.md",
+                "file": "CSS/宽度，高度.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "布局"
+              "title": "宽度，高度"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/布局.md",
+                "file": "CSS/宽度，高度.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "布局 的大纲"
+              "title": "宽度，高度 的大纲"
             }
           },
           {
@@ -182,6 +182,14 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
+    "CSS/幽灵空白节点.md",
+    "CSS/宽度，高度.md",
+    "CSS/宽度，高度/宽度，高度-1768892837648.png",
+    "CSS/宽度，高度",
+    "CSS/盒子模型.md",
+    "CSS/显示.md",
+    "CSS/布局.md",
+    "工程化/Export和Exposts.md",
     "CSS/布局/布局-1768461696020.png",
     "ECMAScript/浏览器渲染.md",
     "ECMAScript/事件循环.md",
@@ -190,7 +198,6 @@
     "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
     "计算机网络/TCP.md",
     "工程化/vite.md",
-    "CSS/布局.md",
     "Vue/路由.md",
     "Vue/双端比对.md",
     "Vue/快速比对.md",
@@ -215,18 +222,11 @@
     "计算机网络/jwt.md",
     "计算机网络/http/https.png",
     "计算机网络/http",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
-    "ECMAScript/作用域、执行上下文、this指向.md",
-    "2025-11-22.md",
-    "ECMAScript/ES+Module、Common+JS.md",
-    "Vue/快速比对/delete.png",
-    "Vue/快速比对/截屏2025-08-02 11.49.32.png",
     "Vue/快速比对",
     "Vue/双端比对",
     "ECMAScript/宏任务+微任务+024c062c-3e9d-4ebe-a304-5632bc3f1741",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba",
     "Vue/数据监听_视+0984fd9b-9ca3-4937-a401-09d6f9515861",
-    "Vue/数据绑定+64a651fd-d6fa-42aa-a7d4-aa9e8f4a2e2e",
-    "Vue/数据代理+-+vue响应式原理+9af58038-ac64-4f99-8f32-54c48c536138"
+    "Vue/数据绑定+64a651fd-d6fa-42aa-a7d4-aa9e8f4a2e2e"
   ]
 }
