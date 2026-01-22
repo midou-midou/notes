@@ -182,8 +182,9 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
-    "CSS/幽灵空白节点.md",
+    "CSS/伪类、伪元素.md",
     "CSS/宽度，高度.md",
+    "CSS/幽灵空白节点.md",
     "CSS/宽度，高度/宽度，高度-1768892837648.png",
     "CSS/宽度，高度",
     "CSS/盒子模型.md",
@@ -219,7 +220,6 @@
     "ECMAScript/image.png",
     "ECMAScript/跨源.md",
     "计算机网络/OAuth.md",
-    "计算机网络/jwt.md",
     "计算机网络/http/https.png",
     "计算机网络/http",
     "Vue/快速比对",
