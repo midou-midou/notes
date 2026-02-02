@@ -1,6 +1,8 @@
 {
   "accentColor": "#1476d2",
-  "cssTheme": "Things",
+  "cssTheme": "Blue Topaz",
   "monospaceFontFamily": "Fira Code",
-  "translucency": true
+  "translucency": false,
+  "nativeMenus": false,
+  "theme": "obsidian"
 }
