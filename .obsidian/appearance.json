@@ -1,8 +1,8 @@
 {
   "accentColor": "#1476d2",
   "cssTheme": "Blue Topaz",
-  "monospaceFontFamily": "Fira Code",
+  "monospaceFontFamily": "JetBrains Mono,Fira Code",
   "translucency": false,
-  "nativeMenus": false,
+  "nativeMenus": true,
   "theme": "obsidian"
 }

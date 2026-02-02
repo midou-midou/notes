@@ -80,7 +80,7 @@ ReactDOM.render(<_button>xxxx</_button>);
 （这只是这个插件支持的其中一种形式而已）
 如果浏览器支持 `import`也可以直接输出
 
-![[babelImportplugin.svg]]
+![babelImportplugin.svg](./Babel/babelImportplugin.svg)
 
 上面的图片展示了 Babel 的基本工作原理，也展示了 `Babel-plugin-import`的工作原理
 
