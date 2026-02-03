@@ -1,0 +1,43 @@
+#!/bin/sh
+
+OUTPUT="README.md"
+
+echo "# 笔记" > "$OUTPUT"
+echo "" >> "$OUTPUT"
+echo "### 目录" >> "$OUTPUT"
+echo "" >> "$OUTPUT"
+
+# 遍历根目录下的文件夹
+for dir in */; do
+  dir_name=$(basename "$dir")
+
+  # 跳过 . 开头的目录
+  case "$dir_name" in
+    .*|node_modules) continue ;;
+  esac
+
+  echo "#### $dir_name" >> "$OUTPUT"
+  echo "" >> "$OUTPUT"
+
+  has_md=false
+
+  # 只遍历该目录下的 md 文件
+  for file in "$dir"*.md; do
+    [ -f "$file" ] || continue
+
+    has_md=true
+    file_name=$(basename "$file" .md)
+
+    # 链接中空格转 %20
+    link_name=$(printf '%s' "$file_name.md" | sed 's/ /%20/g')
+
+    echo "- [$file_name](./$dir_name/$link_name.md)" >> "$OUTPUT"
+  done
+
+  # 如果没有 md 文件，可选：是否给一个目录链接
+  if [ "$has_md" = false ]; then
+    echo "- [$dir_name](./$dir_name)" >> "$OUTPUT"
+  fi
+
+  echo "" >> "$OUTPUT"
+done

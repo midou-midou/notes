@@ -1,0 +1,15 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "midou 的笔记 📒",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "keywords": ["frontend", "vue", "react", "node"],
+  "author": "midou",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.1",
+  "dependencies": {
+    "husky": "^9.1.7"
+  }
+}
