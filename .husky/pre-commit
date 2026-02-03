@@ -41,3 +41,5 @@ for dir in */; do
 
   echo "" >> "$OUTPUT"
 done
+
+git add README.md
