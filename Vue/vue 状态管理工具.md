@@ -1,26 +1,35 @@
-和rudux一样要解决多组件间通信的问题。比如非兄弟组件间的通行，以及很多组件的情况下
+状态管理工具，可以实现组件间共享状态（也就是组件间状态通信）的功能，同时可以在状态变化时通知注册的回调，执行一些我们指定的操作
 
-### 什么时候使用Vuex
+# vuex
+
+## 前言
+### 题外话：什么时候使用Vuex？也许并不需要使用vuex
 
 - 多个组件依赖于同一个状态
-
 - 来自不同组件的行为要变更同一个状态
-
 - 共享状态
 
-### 原理图：
+但是，如果要完成组件间的状态共享，可以用很多其他的方式，比如手动实现一个极简的 `store`，注册到 vue 的实例对象上，也可以实现共享
+
+## 原理图
 
 ![https://static.xuyanshe.club/img/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png](Vuex/1655980209729-62c6ba20-f1ca-41b8-92d6-f1cba68c23e4.png)
 
-### 术语解释：
+## vuex中的概念
 
-**state**：`vuex`下面的一个公共的`state`，可以管理整个项目的所有状态
+### 术语解释
+
+**state**：`vuex`下面的一个公共的`state`，或者说是“单一状态树”，表示整个项目的所有状态
+
+**getter**：`state`状态的获取器，可以对状态做一些处理操作（比如过滤等）并返回操作后的结果状态
 
 **action**：负责接收组件派发的事件，如果组件派发的事件仅有事件的类型，没有具体的值。具体的值需要从其他的后端API（也就是图中的Backend API）、获取或者做数据的加工，那么就需要action拿到这个值，之后`commit`给`mutations`，也可以直接返回值给调用的组件
 
-**mutations**：拿到对应的事件类型和值，来对state进行处理。mutation对象里的方法不能有返回值，返回值拿不到数据，仅仅可以操作模块里面的数据
+**mutations**：拿到对应的事件类型和值，来对`state`进行处理。`mutation`对象里的方法不能有返回值，返回值拿不到数据，仅仅可以操作模块里面的数据
 
 **store**：上面几个部分的管理者
+
+**module**：模块，可以理解为小的 `store`，从 `store`中拆分出来的部分。模块中可以开启 `namespace: true`的选项，表示开启命名空间，命名空间的名称为“模块对象”的名字
 
 ### 白话vuex
 
@@ -87,7 +96,9 @@ export default {
     }
 ```
 
-### store中的getter：
+## store中的方法
+
+### getter
 
 用于派生state数据，派生出来的数据可以做其他的操作
 
@@ -100,7 +111,54 @@ getters: {
 }
 ```
 
-接收state，有时候可以接收第二个参数`getter`（和上面的dispatch中的`context`对象中的dispatch方法差不多，可以继续使用对应的dispatch或者getter。
+接收state，有时候可以接收第二个参数`getter`（和上面的dispatch中的`context`对象中的dispatch方法差不多，可以继续使用对应的`dispatch`或者`getter`
+
+### dispatch
+
+用于触发对应的 `action`
+
+```js
+// 函数签名
+dispatch(type: string, payload?: any, options?: Object): Promise<any>
+// or
+dispatch(action: Object, options?: Object): Promise<any>
+```
+
+### commit
+用于触发对应的 `mutation`
+
+```js
+// 函数签名
+commit(type: string, payload?: any, options?: Object)
+// or
+commit(mutation: Object, options?: Object)
+```
+
+### subscribe
+每一个 `mutation`执行完毕后，执行传入的 `handler`函数
+
+```js
+// 函数签名
+subscribe(handler: Function, options?: Object): Function
+```
+
+### subscribeAction
+每一个 `action`执行前，都会执行传入的 `handler`函数
+
+```js
+// 函数签名
+subscribeAction(handler: Function, options?: Object): Function
+```
+
+### watch
+监听第一个参数（第一个参数是一个函数）的返回值，返回值有变化，执行第二个传入的参数（也是一个函数）
+
+```js
+// 函数签名
+watch(fn: Function, callback: Function, options?: Object): Function
+```
+
+##  vue组件中使用的辅助函数
 
 ### mapState和mapGetter
 
@@ -135,7 +193,7 @@ methods: {
 }
 ```
 
-### vuex模块化、命名空间
+## vuex模块化
 
 单一的状态树会在项目中越来越大，越来越臃肿。所以可以将单一的store分割成多个store 每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割
 
@@ -205,4 +263,7 @@ methods: {
 }
 ```
 
+
+
+# Pinia
 

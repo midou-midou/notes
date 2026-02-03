@@ -64,7 +64,7 @@ type Flatten<T> = T extends any[] ? T[number] : T;
 下面是做了类型约束的写法
 
 ```TypeScript
-type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
+type Flatten<T> = T extends Array<infer Item> ? Item : T;
 ```
 
 `infer Item`就是推断出数组中每一个元素的类型，`Item`是每一个元素的类型
