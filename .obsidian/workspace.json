@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "工程化/Babel.md",
+                "file": "工程化/模块化规范.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Babel"
+              "title": "模块化规范"
             }
           },
           {
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "工程化/Babel.md",
+                "file": "工程化/模块化规范.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Babel 的大纲"
+              "title": "模块化规范 的大纲"
             }
           },
           {
@@ -211,13 +211,16 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
+    "工程化/同等依赖+peerDepencidency.md",
+    "工程化/模块化规范.md",
+    "工程化/Babel.md",
+    "工程化/ES下node多版本、包管理工具+npm,yarn,pnpm+多版本的研究.md",
+    "工程化/Export和Exposts.md",
     "参考资料/Babel 插件 Handbook.md",
     "工程化/Babel/babelImportplugin.svg.crswap",
     "工程化/Babel/babelImportplugin.svg",
     "工程化/Babel",
-    "工程化/Babel.md",
     "工程化/模块.md",
-    "工程化/Export和Exposts.md",
     "README.md",
     "计算机网络/TCP.md",
     "计算机网络/http、https.md",
@@ -242,8 +245,6 @@
     "Vue/双端比对.md",
     "Vue/快速比对.md",
     "Vue/vue速查.md",
-    "Vue/Vuex.md",
-    "Vue/响应式原理.md",
     "ECMAScript/垃圾回收/垃圾回收-1765201965944.png",
     "ECMAScript/垃圾回收/垃圾回收-1765106010556.png",
     "ECMAScript/垃圾回收/垃圾回收-1765105030993.png",
