@@ -31,7 +31,7 @@ for dir in */; do
     # 链接中空格转 %20
     link_name=$(printf '%s' "$file_name.md" | sed 's/ /%20/g')
 
-    echo "- [$file_name](./$dir_name/$link_name.md)" >> "$OUTPUT"
+    echo "- [$file_name](./$dir_name/$link_name)" >> "$OUTPUT"
   done
 
   # 如果没有 md 文件，可选：是否给一个目录链接
