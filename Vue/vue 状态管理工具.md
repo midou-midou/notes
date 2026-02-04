@@ -267,3 +267,232 @@ methods: {
 
 # Pinia
 
+作用和 vuex 一致，都是为了组件间共享状态。但是vuex5 开发团队已经把 pinia 作为 vue 的主要状态管理工具，且 pinia 基本就是从 vuex5 的概念里做出来的，换了个名字
+
+## 为什么要选pinia
+
+老生常谈的问题，第一个 `composition API`，更佳复合 vue3 的官方写法规范，第二，不在需要 `mutation`，那么如何操作 `store`中的状态呢？直接暴露出来操作就可以，pinia 返回的是响应式数据，就和在组件中定义的响应式数据一致，所以，在组件中如何使用，就如何使用 pinia 暴露出来的 `state`
+第三，去掉了类似 `subscribe`等 API，如果需要触发回调函数，直接监听 `state`即可，且也没有命名空间，模块等概念了，因为不需要。而且，对 ts 支持很好
+
+## 方法
+
+### defineStore
+```js
+import { defineStore } from 'pinia'
+
+export const useAlertsStore = defineStore('alerts', {
+  // other options...
+})
+```
+
+这里要⚠️注意，导出的名称最好都已 `use`开头，符合 vue  composition API 的命名规范
+
+传入的第一个参数，仅仅是作为在 devtool 中使用的唯一 id，所以必须要填写
+
+defineStore 的 options 有：
+- state
+- getter
+- action
+
+下面来一个一个说明
+
+### state
+定义 `store`中用到的状态
+
+```js
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ count: 0, name: 'Eduardo' })
+  
+})
+
+// 第二种写法
+export const useCounterStore = defineStore('counter', {
+  const count = ref(0)
+  const foo = reactive({bar: ''})
+  
+  return {
+	  count, foo
+  }
+})
+
+```
+
+#### mapState()和 mapWritableState()
+在选项式 API 中使用，映射出只读的状态，注意⚠️不可修改的
+```js
+import { mapState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
+export default {
+  computed: {
+    ...mapState(useCounterStore, ['count'])
+    ...mapState(useCounterStore, {
+      myOwnName: 'count',
+      double: store => store.count * 2,
+      magicValue(store) {
+        return store.someGetter + this.count + this.double
+      },
+    }),
+  },
+}
+```
+如果需要映射可以修改的属性，要使用 `mapWritaleState`方法
+
+```js
+import { mapWritableState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
+export default {
+  computed: {
+    ...mapWritableState(useCounterStore, ['count']),
+    ...mapWritableState(useCounterStore, {
+      myOwnName: 'count',
+    }),
+  },
+}
+```
+
+#### $subscribe()
+此方法是监听 `state`的变化，如果变化，执行传入的回调，也就是 vuex 中的 `mutation`执行后执行
+```js
+cartStore.$subscribe((mutation, state) => {
+
+})
+```
+
+
+### getter
+类似组件中的 `computed`，对状态做二次处理，派生新状态的，和 vuex 类似
+
+```js
+export const useCounterStore = defineStore('counter', () => {
+  const doubleCount = computed(() => count.value * 2)
+
+  return { doubleCount }
+})
+
+// or
+
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ count: 0 }),
+  getters: {
+    doubleCount: (state) => state.count * 2,
+  }
+})
+
+```
+
+### action
+类似组件中的 `methods`，可以写一些方法，也可以像 vuex 一样处理请求逻辑，也可以写一下业务逻辑
+
+```js
+export const useCounterStore = defineStore('counter', () => {
+  function increment() {
+    count.value++
+  }
+
+  return { increment }
+})
+
+// or
+
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ count: 0 }),
+  actions: {
+    increment() {
+      this.count++
+    },
+  },
+})
+
+```
+
+#### mapActions()
+这个方法是在选项式写法中使用的，和 vuex 的同名方法作用一致
+```js
+import { mapActions } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
+export default {
+  methods: {
+    ...mapActions(useCounterStore, ['increment']),
+    ...mapActions(useCounterStore, { myOwnName: 'increment' }),
+  },
+}
+```
+
+
+#### $onAction()
+类似于 vuex 的 `subscribeAction`，订阅 action，函数签名如下
+
+```js
+const unsubscribe = someStore.$onAction(
+  ({
+    name, // name of the action
+    store, // store instance, same as `someStore`
+    args, // array of parameters passed to the action
+    after, // hook after the action returns or resolves
+    onError, // hook if the action throws or rejects
+  }) => {
+    // a shared variable for this specific action call
+    const startTime = Date.now()
+    // this will trigger before an action on `store` is executed
+    console.log(`Start "${name}" with params [${args.join(', ')}].`)
+
+    // this will trigger if the action succeeds and after it has fully run.
+    // it waits for any returned promise
+    after((result) => {
+      console.log(
+        `Finished "${name}" after ${
+          Date.now() - startTime
+        }ms.\nResult: ${result}.`
+      )
+    })
+
+    // this will trigger if the action throws or returns a promise that rejects
+    onError((error) => {
+      console.warn(
+        `Failed "${name}" after ${Date.now() - startTime}ms.\nError: ${error}.`
+      )
+    })
+  }
+)
+
+// manually remove the listener
+unsubscribe()
+```
+
+### storeToRefs
+解构从 store 中返回的响应式数据
+
+```js
+<script setup>
+import { useCounterStore } from '@/stores/counter'
+import { storeToRefs } from 'pinia'
+
+const store = useCounterStore()
+const { name, doubleCount } = storeToRefs(store)
+const { increment } = store
+</script>
+
+```
+响应式数据的状态需要使用上面的 API 去解构，但是 action 方法就不需要
+
+### 插件 plugin
+插件可以添加属性、`store`的选项 Options 到到每一个 `store` 上
+
+```js
+import { createPinia } from 'pinia'
+
+function SecretPiniaPlugin() {
+  return { secret: 'the cake is a lie' }
+}
+
+//  使用.use()方法来应用pinia 插件
+const pinia = createPinia()
+pinia.use(SecretPiniaPlugin)
+
+const store = useStore()
+store.secret // 'the cake is a lie'
+
+```

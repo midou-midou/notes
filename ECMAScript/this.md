@@ -91,6 +91,7 @@ String.prototype.getThis = getThis;
 回调的this指向是通过"在于什么时候调用回调"函数决定的
 
 但在`setTimeout`和`setInterval`中，普通函数做回调和箭头函数做回调有不同的表现
+
 ```js
 setTimeout(function () {
   console.log(this)
@@ -268,14 +269,14 @@ class Foo{
 这里面的this一定指向构造的这个新实例（新对象）
 
 #### super
-类的`constructor`函数中可以调用父类的`super`函数，也可以使用`super.`去调用父类的静态方法，或静态属性  
+类的`constructor`函数中可以使用`super`函数调用父类的构造函数，也可以使用`super.`去调用父类的静态方法，或静态属性  
 其实是换了名字的this
 
 ## 方法
 那方法里用到this，怎么找到他的this指向呢？因为方法都是 **实例的"."调用**所以又回到上面说的this指向去了（指向这个对象）
 
 ### 静态方法
-静态方法中不能访问普通属性，但可以访问静态属性
+静态方法中不能访问普通属性，但可以访问静态属性。this 指向呢，同理，执行调用方，调用方是谁？是 **Foo 类对象**（不是 `new Foo` 的类实例哦）
 
 ```js
 class Foo{
@@ -286,10 +287,9 @@ class Foo{
   }
 }
 
-Foo.getBar() // 输出：bar
+Foo.getBar() // 输出：bar 里面的 this 指向类对象，不是 new 的类实例
 
 ```
 
-同样，可以用`super`访问父类的静态方法及属性
 
 
