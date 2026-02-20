@@ -1,4 +1,6 @@
-#### BFC (Block Formatting Context) 
+# BFC (Block Formatting Context) 
+
+## 概念
 
 MDN定义：Web 页面的可视 CSS 渲染的一部分，是块级盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域
 
@@ -28,23 +30,26 @@ BFC：根据张鑫旭CSS世界定义，BFC为一个“结界”，外部不能�
 
 其实这个粉色框`float`元素也是BFC，不过是粉色框内部而言。同样的，按照BFC的生成规则，黑色文字的BFC也可以用`float`创建，但破坏性太大了，让元素本来的流体特性没了，变成了包裹性
 
-### BFC的生成规则
+## BFC的生成规则
 
-• `float` 的值不为 `none`
-
-• `overflow` 的值为 `auto`、`scroll` 或 `hidden`
-
-• `display` 的值为 `table-cell`、`table-caption` 和 `inline-block` 中的任何一个
-
-• `position` 的值为 `absolute` 和 `fixed`
+-  `float` 的值不为 `none`
+- `overflow` 的值为 `auto`、`scroll` 或 `hidden`
+- `display` 的值为 `table-cell`、`table-caption` 和 `inline-block` 中的任何一个
+- `position` 的值为 `absolute` 和 `fixed`
+- `display`的值为 `flow-root`（这个属性是2020 年后开始陆续支持的，可以创建一个 BFC，但是会占用 `display`属性）
 
 `overflow: hidden`也不是没有缺点，比如设置了这个属性的BFC，结构是一个父元素包含一个子元素，这个子元素超出父元素的部分就会隐藏
 
-### 应用
+## 应用
 
 * `margin`高度塌陷，父子元素`margin-top`的合并，可以给父元素创建一个BFC，父元素的`margin-top`和其内部隔绝，父元素和子元素各自的`margin-top`就可以生效了
 * 清除浮动的影响，比如说上面的例子。浮动对外部元素和内部元素的影响
 
+# 其他清除浮动方法
+
+## clear属性
+clear 属性常用的写法 `clear: both`，不会和浮动元素相邻，相当于 `clear: left|right`会自动选择，如果左边有浮动元素，就不会和左边的元素相邻
+这个属性不是最优解，因为清除浮动的方法是不与之相邻，有可能会造成布局错位
 
 
 

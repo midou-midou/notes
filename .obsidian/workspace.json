@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ECMAScript/作用域、执行上下文、this指向.md",
+                "file": "CSS/BFC 块级格式化上下文.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "作用域、执行上下文、this指向"
+              "title": "BFC 块级格式化上下文"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ECMAScript/作用域、执行上下文、this指向.md",
+                "file": "CSS/BFC 块级格式化上下文.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "作用域、执行上下文、this指向 的大纲"
+              "title": "BFC 块级格式化上下文 的大纲"
             }
           },
           {
@@ -182,12 +182,27 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
+    "ECMAScript/原型.md",
+    "ECMAScript/原型/原型-1771209904747.png",
+    "ECMAScript/原型/原型-1771209070627.png",
+    "ECMAScript/原型/原型-1771208222323.png",
+    "ECMAScript/原型/原型-1771167032305.png",
+    "ECMAScript/原型",
+    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
+    "Vue/响应式原理.md",
+    "Vue/响应式原理/响应式原理-1771142725356.png",
+    "Vue/响应式原理/响应式原理-1770880224140.png",
+    "Vue/响应式原理/响应式原理-1770880115054.png",
+    "Vue/响应式原理",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/条件类型 conditional types.md",
+    "Vue/渲染.md",
+    "工程化/模块.md",
+    "工程化/换npm源.md",
+    "ECMAScript/作用域、执行上下文、this指向.md",
     "ECMAScript/作用域、执行上下文、this指向/作用域、执行上下文、this指向-1770556559607.png",
     "ECMAScript/作用域、执行上下文、this指向",
-    "ECMAScript/原型.md",
     "ECMAScript/垃圾回收.md",
     "ECMAScript/防抖、节流.md",
-    "ECMAScript/作用域、执行上下文、this指向.md",
     "参考资料/You-Dont-Know-JS/get-started/ch3.md",
     "参考资料/You-Dont-Know-JS/get-started/ch2.md",
     "参考资料/You-Dont-Know-JS/get-started/ch1.md",
@@ -205,28 +220,12 @@
     "参考资料/You-Dont-Know-JS/types-grammar/README.md",
     "参考资料/You-Dont-Know-JS/types-grammar",
     "参考资料/You-Dont-Know-JS/sync-async/toc.md",
-    "参考资料/You-Dont-Know-JS/sync-async/foreword.md",
-    "参考资料/You-Dont-Know-JS/sync-async/ch1.md",
-    "参考资料/You-Dont-Know-JS/sync-async/README.md",
     "参考资料/You-Dont-Know-JS/sync-async",
     "参考资料/You-Dont-Know-JS/scope-closures/images/fig5.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/fig3.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/fig4.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/fig2.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/fig1.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/cover.png",
-    "参考资料/You-Dont-Know-JS/scope-closures/toc.md",
     "参考资料/You-Dont-Know-JS/scope-closures/images",
-    "参考资料/You-Dont-Know-JS/scope-closures/foreword.md",
-    "参考资料/You-Dont-Know-JS/scope-closures/ch8.md",
     "参考资料/You-Dont-Know-JS/scope-closures",
     "参考资料/You-Dont-Know-JS/objects-classes",
-    "参考资料/You-Dont-Know-JS/get-started/images/fig6.svg",
-    "参考资料/You-Dont-Know-JS/get-started/images/fig6.png",
-    "参考资料/You-Dont-Know-JS/get-started/images/fig5.svg",
     "参考资料/You-Dont-Know-JS/get-started/images",
-    "参考资料/You-Dont-Know-JS/get-started",
-    "参考资料/You-Dont-Know-JS/external-logos",
-    "参考资料/You-Dont-Know-JS/es-next-beyond"
+    "参考资料/You-Dont-Know-JS/get-started"
   ]
 }
