@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/BFC 块级格式化上下文.md",
+                "file": "ECMAScript/浏览器渲染.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BFC 块级格式化上下文"
+              "title": "浏览器渲染"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/BFC 块级格式化上下文.md",
+                "file": "ECMAScript/浏览器渲染.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "BFC 块级格式化上下文 的大纲"
+              "title": "浏览器渲染 的大纲"
             }
           },
           {
@@ -182,6 +182,11 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
+    "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
+    "ECMAScript/浏览器渲染.md",
+    "ECMAScript/浏览器渲染/浏览器渲染-1771987429826.png",
+    "ECMAScript/浏览器渲染",
+    "CSS/BFC 块级格式化上下文.md",
     "ECMAScript/原型.md",
     "ECMAScript/原型/原型-1771209904747.png",
     "ECMAScript/原型/原型-1771209070627.png",
@@ -217,15 +222,11 @@
     "参考资料/You-Dont-Know-JS/types-grammar/ch3.md",
     "参考资料/You-Dont-Know-JS/types-grammar/ch2.md",
     "参考资料/You-Dont-Know-JS/types-grammar/ch1.md",
-    "参考资料/You-Dont-Know-JS/types-grammar/README.md",
     "参考资料/You-Dont-Know-JS/types-grammar",
-    "参考资料/You-Dont-Know-JS/sync-async/toc.md",
     "参考资料/You-Dont-Know-JS/sync-async",
-    "参考资料/You-Dont-Know-JS/scope-closures/images/fig5.png",
     "参考资料/You-Dont-Know-JS/scope-closures/images",
     "参考资料/You-Dont-Know-JS/scope-closures",
     "参考资料/You-Dont-Know-JS/objects-classes",
-    "参考资料/You-Dont-Know-JS/get-started/images",
-    "参考资料/You-Dont-Know-JS/get-started"
+    "参考资料/You-Dont-Know-JS/get-started/images"
   ]
 }
