@@ -979,7 +979,7 @@ new Vue({
 
 ## nextTick
 
-会在本次DOM更新结束后，下一轮的微任务队列中执行。这么做目的就是能确保DOM是最新的，这里涉及一点[事件循环机制](../ECMAScript/事件循环.md)
+会在DOM更新结束后，下一轮的微任务队列中执行。这么做目的就是能确保DOM是最新的，这里涉及一点[事件循环机制](../ECMAScript/事件循环.md)
 
 vue3的用法和vue2有点差异，且nextTick默认返回一个Promise，可以await，vue2会根据环境自动调整是否使用Promise
 
