@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "ebb9ff8e0e6668f0",
+        "id": "85327f63f7bffe75",
         "type": "tabs",
         "children": [
           {
-            "id": "c5d63c446885e30f",
+            "id": "5c5cc9b83104cc2e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "移动端/微信小程序.md",
+                "file": "AI/MCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "微信小程序"
-            }
-          },
-          {
-            "id": "7b8c3ffbabcb419a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ECMAScript/作用域、执行上下文、this指向.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "作用域、执行上下文、this指向"
+              "title": "MCP"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ECMAScript/作用域、执行上下文、this指向.md",
+                "file": "AI/MCP.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "作用域、执行上下文、this指向 的大纲"
+              "title": "MCP 的大纲"
             }
           },
           {
@@ -195,13 +180,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cff6691665c08ae8",
+  "active": "5c5cc9b83104cc2e",
   "lastOpenFiles": [
     "AI/RAG.md",
+    "AI/RAG/RAG-1774928287535.png",
+    "ECMAScript/作用域、执行上下文、this指向.md",
     "移动端/微信小程序.md",
     "AI/MCP.md",
     "AI/MCP/MCP-1774761270960.png",
-    "ECMAScript/作用域、执行上下文、this指向.md",
     "AI/MCP/MCP-1774750283786.png",
     "AI/MCP/MCP-1774749420862.png",
     "AI/MCP",
@@ -240,7 +226,6 @@
     "ECMAScript/原型/原型-1771209904747.png",
     "ECMAScript/原型/原型-1771209070627.png",
     "ECMAScript/原型/原型-1771208222323.png",
-    "ECMAScript/原型/原型-1771167032305.png",
     "ECMAScript/原型"
   ]
 }
