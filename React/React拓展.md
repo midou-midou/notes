@@ -1,18 +1,17 @@
 # React拓展
 
-### 组件优化
+## 组件优化
 
-组件的两个问题
+### 组件的两个问题
 
 - 只要执行 `setState()`,即使不改变状态数据, 组件也会重新 `render()`
+- 只有当前组件重新 `render()`, 就会自动重新render子组件 ==> 效率低
 
-- 只当前组件重新 `render()`, 就会自动重新render子组件 ==> 效率低
-
-效率高的做法： 只有当组件的state或props数据发生改变时才重新render
+效率高的做法： 只有当组件的`state`或`props`数据发生改变时才重新render
 
 **出现component重复渲染的问题：** Component中的`shouldComponentUpdate()`总是返回true
 
-**解决方法：**
+### **解决方法**
 
 - 办法1:
 
@@ -34,19 +33,30 @@
 
 ### Render props
 
-问题：**如何向组件内部动态传入带内容的结构(标签)?**
+问题：**如何向组件内部动态传入带内容的结构的数据(标签)?**
 
-- 使用children props: 通过组件标签体传入结构
+- 使用`children props`: 通过组件标签体传入结构，这个东西有点类似于vue插槽
 
-- 使用render props: 通过组件标签属性传入结构, 一般用render函数属性
+- 使用`render props`: 通过组件标签属性传入结构, 一般用render函数属性
 
 **children props**
 
 ```JavaScript
+<!-- 其他组件中使用了 A 组件和 B 组件 -->
 <A>
-    <B >xxxx</B>
+    <B>xxxx</B>
 </A>
-{this.props.children}
+
+// A 组件里
+// 接收的 children 就是 B 组件
+function A({ children }) {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+}
+
 ```
 
 **render props**
@@ -55,5 +65,6 @@
 <A render={(data) => <C data={data}></C>}></A>
 ```
 
-A组件:  `{this.props.render(内部state数据)}` C组件: 读取A组件传入的数据显示  `{this.props.data}`
+A组件:  `{this.props.render(内部state数据)}` 
+C组件: 读取A组件传入的数据显示  `{this.props.data}`
 

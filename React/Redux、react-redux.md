@@ -18,12 +18,8 @@ redux的工作流程：
 
 **redux的三个核心部分**
 
-：
-
 - action
-
 - reducer
-
 - store
 
 用一个简单的例子来描述这三个核心部分：
@@ -129,6 +125,82 @@ export default ListItem;
 ### react-redux
 
 - UI组件
-
 - 容器组件
 
+# Context
+## useContext
+上下文，作为组件间传递数据使用，一般要配合两个 Hook，`useContext`和 `useReducer`
+![](./Redux、react-redux/Redux、react-redux-1775481687790.png)
+一般组件如果跨层级，传递数据是一个有点麻烦的问题，见上图
+
+使用也很简单，就是使用创建出来的 `context`组件来包裹住需要使用上下文数据的组件
+```js
+// 这里创建一个 context
+import { createContext } from 'react';
+export const LevelContext = createContext(0);
+
+// 这里要消费
+import { LevelContext } from './LevelContext.js';
+
+export default function Section({ children, isFancy }) {
+  const level = useContext(LevelContext);
+  return (
+    <section className={
+      'section ' +
+      (isFancy ? 'fancy' : '')
+    }>
+      <LevelContext value={level + 1}>
+        {children}
+      </LevelContext>
+    </section>
+  );
+}
+```
+
+老的教程中会使用 `Consumer`来消费上下文，这种方式已经不被官方文档推荐 [文档](https://react.docschina.org/reference/react/createContext#consumer)
+
+## useRecuder
+这个Hook是用来提交数据到 `context`的，相当于修改数据，使用也很简单，使用 `useReducer`
+
+```js
+// 这里创建一个派发修改事件的 reducer
+import { useReducer } from 'react';
+
+export function TasksProvider() {
+  const [tasks, dispatch] = useReducer(
+    tasksReducer,
+    initialTasks
+  );
+
+  return (
+	  <button onClick={dispatch({
+          type: 'added',
+          text: 'foo',
+        })}>
+		  Add Tasks
+	  </button>
+  );
+}
+
+function tasksReducer(tasks, action) {
+  switch (action.type) {
+    case 'added': {
+      return [...tasks, {
+        text: action.text,
+        done: false
+      }];
+    }
+    default: {
+      throw Error('Unknown action: ' + action.type);
+    }
+  }
+}
+
+const initialTasks = [
+  { id: 0, text: 'Philosopher’s Path', done: true },
+  { id: 1, text: 'Visit the temple', done: false }
+];
+
+```
+
+官方提供的 `context`和 `reducer`其实和 redux 中的概念很相近，所以很好理解

@@ -2,7 +2,7 @@
 
 ## 基础
 
-### 一、JSX
+###  JSX 语法
 
 ```JavaScript
 const element = <h1>Hello, {name}</h1>
@@ -19,16 +19,49 @@ const element = <img className={imgClass} src={user.avatarUrl} />
 - 属性用小驼峰语法
 
 ```JavaScript
-const element = <h1>Hello, world!</h1>
+const element = <h1>Hello, {name}</h1>
 ReactDOM.render(element,document.getElementById('root'))
 ```
 
-一个可运行的React Hello World例子 在React中，碰到`标签`会以html解析，碰到`{}`会以JavaScript解析 渲染一个React组件使用`ReactDOM.render(element, container[, callback])`
+一个可运行的React Hello World例子 在React中，碰到`标签`会以html解析，碰到`{}`会以JavaScript解析 
+渲染一个React组件使用 `ReactDOM.render(element, container[, callback])`
 
-### 二、组件
+#### createElement方法
+JSX 会转换为 `React.createElement`方法调用
+```js
+// 函数签名
+const element = createElement(type, props, ...children)
+```
+会创建一个 react 元素，类似 vue 的 `h`函数创建 vue 中的 VNode
+
+```js
+// 使用 createElement 函数
+import { createElement } from 'react';
+
+function Greeting({ name }) {
+  return createElement(
+    'h1',
+    { className: 'greeting' },
+    '你好',
+    createElement('i', null, name),
+    '。欢迎！'
+  );
+}
+
+
+// 直接使用 JSX
+function Greeting({ name }) {
+  return (
+    <h1 className="greeting">
+      你好<i>{name}</i>，欢迎！
+    </h1>
+  );
+}
+```
+
+### 组件
 
 1. 类式组件
-
 2. 函数式组件
 
 ```JavaScript
@@ -60,11 +93,11 @@ ReactDOM.render(
 )
 ```
 
-### 三、组件上的props和state
+### 组件上的props和state
 
 组件接收的入参为props，组件自身的状态为state
 
-### props
+#### props
 
 组件身上的标签属性（也就是这个组件接收的参数）都会存放到组件的props属性上
 
@@ -83,17 +116,17 @@ const el = <Welcome name="嘉然" />
 传入值的类型检查，PropTypes的使用
 
 ```JavaScript
-static propTypes = {
+Welcome.propTypes = {
   name:PropTypes.string.isRequired, //限制name必传，且为字符串
   sex:PropTypes.string,//限制sex为字符串
   age:PropTypes.number,//限制age为数值
 }
 ```
 
-默认值，defaulyProps的使用
+默认值，defaultProps的使用
 
 ```JavaScript
-static defaultProps = {
+Welcome.defaultProps = {
 	sex: "male",
 	age: 20
 }
@@ -101,7 +134,7 @@ static defaultProps = {
 
 props不可修改
 
-### State
+#### State
 
 函数式组件需借助Hooks使用state，类式组件可以直接使用state。 state是一个对象的形式
 
@@ -124,16 +157,18 @@ class Weather extends React.Component{
 
 - callback会在组件状态和界面都更新后才会被调用
 
-- 如果新状态不依赖于原状态 ===> 使用对象方式
+- 如果新状态不依赖于原状态 ==> 使用对象方式
 
-- 如果新状态依赖于原状态 ===> 使用函数方式
+- 如果新状态依赖于原状态 ==> 使用函数方式
 
-- 如果需要在setState()执行后获取最新的状态数据, 要在第二个callback函数中读取
+- 如果需要在`setState()`执行后获取最新的状态数据, 要在第二个callback函数中读取
+
+#### useState
+[useState Hook](./Hooks.md###State Hooks)
 
 ### 四、事件处理
 
 1. 事件处理回调
-
 2. `Ref`
 
 类式组件里，在回调函数中要注意this指向的问题
@@ -266,32 +301,33 @@ class CustomTextInput extends React.Component {
 
 ### 五、虚拟DOM、真实DOM
 
-### 虚拟DOM
+#### 虚拟DOM（文档称为 React 元素）
 
 开销极小的普通对象
 
 ```JavaScript
 const Velement = <div>Hello, world</div>;
+
+// 或者使用 React.createElement()
 ```
 
-### 真实DOM
+#### 真实DOM
 
 ```JavaScript
 const Relement = document.getElementById("root");
 ```
 
-### 两者关系
+#### 两者关系
 
-- 调用ReactDOM.render将虚拟DOM渲染成真实DOM，组件state改变时，React会创建新VDOM并生成RDOM
+- 调用`ReactDOM.render`将虚拟DOM渲染成真实DOM，组件state改变时，React会创建新VDOM并生成RDOM
 
 - 虚拟DOM没有真实DOM过多的属性
 
-### 六、Diff算法
+#### Diff算法
 
-对象差异比对调和（Reconciliation）算法
+[对象差异比对调和（Reconciliation）算法](./React Fiber.md) 
 
 - 虚拟DOM的比对
-
 - 三种比对策略
 
 Tree Diff：DOM树的同层比对，跨层时，直接创建新节点及节点下的树 Element Diff：节点在同一层级，会使用 删除、插入、移动 来更新插入
@@ -425,7 +461,6 @@ shouldComponentUpdate(){
 ### 九、网络请求
 
 - axios
-
 - fetch
 
 ### axios
@@ -450,7 +485,7 @@ axios.get(`/api1/users?q=${keyWord}`).then(
 fetch.get(`/api1/users?q=${keyWord}`)
   .then( resp => {} err => {})
   .then( resp(data) => {} err => {})
-  async await语法
+  // async await语法
   async() => {
       const response= await fetch(`/api1/search/users2?q=${keyWord}`)
       const data = await response.json()
