@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "85327f63f7bffe75",
+        "id": "af1c889e6b03ad1a",
         "type": "tabs",
         "children": [
           {
-            "id": "2a08ba79c74ffedc",
+            "id": "1673eb998b9a4e50",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/React Fiber.md",
+                "file": "Vue/路由.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React Fiber"
+              "title": "路由"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "React/React Fiber.md",
+                "file": "Vue/路由.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "React Fiber 的大纲"
+              "title": "路由 的大纲"
             }
           },
           {
@@ -162,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -180,14 +180,32 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2a08ba79c74ffedc",
+  "active": "1673eb998b9a4e50",
   "lastOpenFiles": [
+    "工程化/CICD.md",
+    "工程化/CICD/CICD-1779112843811.png",
+    "工程化/CICD/CICD-1779112768650.png",
+    "工程化/CICD",
+    "React/Hooks.md",
+    "React/jsx.md",
+    "React/React拓展.md",
+    "React/React基础.md",
+    "Vue/路由.md",
+    "AI/RAG.md",
+    "AI/LangChain.md",
+    "AI/MCP.md",
+    "README.md",
+    "工程化/webpack.md",
+    "AI/Skill 和 Tool.md",
+    "AI/Skill 和 Tool/Skill 和 Tool-1776998631783.png",
+    "AI/Skill 和 Tool/Skill 和 Tool-1776998604540.png",
+    "AI/Skill 和 Tool",
+    "React/React Fiber.md",
     "ECMAScript/垃圾回收.md",
     "ECMAScript/Fetch.md",
     "ECMAScript/Worker.md",
     "ECMAScript/this.md",
     "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
-    "React/React Fiber.md",
     "React/React Fiber/React Fiber-1775809615071.png",
     "React/React Fiber/React Fiber-1775809564455.png",
     "React/React Fiber/React Fiber-1775809545255.png",
@@ -196,37 +214,18 @@
     "ECMAScript/浏览器渲染.md",
     "React/React Fiber/React Fiber-1775807063013.png",
     "React/React Fiber",
-    "React/React基础.md",
-    "React/Hooks.md",
-    "React/jsx.md",
     "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket/长轮询、长连接、服务器事件推送、WebSocket-1775617301419.png",
     "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket",
-    "React/React拓展.md",
-    "ECMAScript/浏览器渲染/浏览器渲染-1775531710414.png",
-    "ECMAScript/浏览器渲染/浏览器渲染-1775531662594.png",
-    "ECMAScript/浏览器渲染/浏览器渲染-1771987429826.png",
     "React/Redux、react-redux.md",
     "ECMAScript/事件循环.md",
     "移动端/微信小程序.md",
-    "AI/MCP.md",
-    "AI/RAG.md",
     "ECMAScript/作用域、执行上下文、this指向.md",
     "AI/MCP",
     "3D/Three.js.md",
     "3D",
-    "ECMAScript/防抖、节流.md",
-    "工程化/webpack.md",
-    "Vue/响应式原理.md",
-    "Vue/渲染.md",
     "AI/RAG",
-    "CSS/BFC 块级格式化上下文.md",
     "AI",
-    "CSS/布局.md",
     "移动端",
-    "CSS/层叠.md",
-    "node_modules",
-    "_tmp_5136_159a3f846f3b30314867f9407f38d8e8",
-    "ECMAScript/未命名.base"
+    "node_modules"
   ]
 }
