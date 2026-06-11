@@ -20,8 +20,24 @@
               "icon": "lucide-file",
               "title": "上下文工程 Context Engineering"
             }
+          },
+          {
+            "id": "b27670f0e5e9c63a",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "工程化/CICD.md",
+                "bFile": "工程化/CICD.md",
+                "aRef": "HEAD",
+                "bRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: CICD"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,13 +110,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/上下文工程 Context Engineering.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "上下文工程 Context Engineering 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -132,12 +147,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cff6691665c08ae8",
+  "active": "b27670f0e5e9c63a",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "AI/上下文工程 Context Engineering.md",
     "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781166456003.png",
     "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781161733799.png",
     "AI/提示词工程 Prompt Engineering.md",
-    "AI/上下文工程 Context Engineering.md",
     "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781160955879.png",
     "AI/上下文工程 Context Engineering",
     "AI/提示词工程 Prompt Engineering/提示词工程 Prompt Engineering-1781159702708.png",
@@ -178,7 +194,6 @@
     "工程化/CICD/CICD-1779112843811.png",
     "工程化/CICD/CICD-1779112768650.png",
     "AI/Skill 和 Tool/Skill 和 Tool-1776998631783.png",
-    "AI/Skill 和 Tool/Skill 和 Tool-1776998604540.png",
-    "React/React Fiber/React Fiber-1775809615071.png"
+    "AI/Skill 和 Tool/Skill 和 Tool-1776998604540.png"
   ]
 }

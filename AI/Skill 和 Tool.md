@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 什么是Skills
 
 ## 一、概念
@@ -9,6 +10,26 @@
 ![](./Skill%20和%20Tool/Skill%20和%20Tool-1776998631783.png)![在这里插入图片描述|701x378](https://developer.qcloudimg.com/http-save/yehe-11994342/38595d5265db6ad237b752c66dc4ba9c.png)
 
 ## 二、为什么需要这种新范式
+=======
+# 什么是Skills？为什么说Skill是被"理解"而不是被"执行"的？
+
+## 一、简介
+
+**Skill 是一份写给 AI 看的"操作说明书"**，它告诉 Agent 在什么情况下该做什么事。这听起来简单，但背后隐藏着一个根本性的范式转变：
+
+- **普通函数**：被代码调用，编译器知道何时执行
+    
+- **Skill**：被 LLM 的推理过程"读懂"后决定要不要用
+    
+
+**说人话就是**：想象你教一个新员工做事。传统编程就像给他一本详细的操作手册，每一步都写死；而 Skill 更像是给他一个任务描述和一些指导原则，让他自己判断在什么情况下该采取什么行动。这就是"被执行"和"被理解"的本质区别。
+
+![](./Skill%20和%20Tool/Skill%20和%20Tool-1776998631783.png)![在这里插入图片描述|701x378](https://developer.qcloudimg.com/http-save/yehe-11994342/38595d5265db6ad237b752c66dc4ba9c.png)
+
+---
+
+## 二、为什么需要这种新范式？
+>>>>>>> origin/main
 
 ### 传统函数的局限性
 
@@ -35,6 +56,7 @@ result = getUserInfo(userId)
     
 
 ### Skill 的解决方案
+<<<<<<< HEAD
 - **传统 Toolkits（黑盒）**
   把多个原子工具在代码层封装成一个高阶工具，对外只暴露 JSON Schema，LLM 看不到内部执行路径。推理步骤少、Token 消耗低，适合逻辑固定的场景
   
@@ -42,6 +64,18 @@ result = getUserInfo(userId)
   以 `SKILL.md` 为核心的自然语言指令集。每个 Skill 是一个独立文件夹
   AI代码解释
 ```markdown
+=======
+
+Skill 通过自然语言描述来解决这些问题：
+
+代码语言：Markdown
+
+自动换行
+
+AI代码解释
+
+```
+>>>>>>> origin/main
 ---
 name: github
 description: Interact with GitHub repositories — create issues, review PRs, check CI status, and manage branches.

@@ -26,6 +26,7 @@
 在项目的**根目录** 创建 `.gitlab-ci.yml`文件，这个文件中的关键字见官方[文档](https://docs.gitlab.com/ci/yaml/)，必要的两个关键字 `stage`和 `job`（这里`job`是自己自定义的，具体可以看下面的例子）
 
 ```yml
+<<<<<<< HEAD
 default:
   interruptible: true
   before_script:
@@ -163,3 +164,11 @@ build-app:
         --network $NETWORK \
         $IMAGE_NAME:latest
 ```
+=======
+
+
+```
+
+# 构建 ci
+
+>>>>>>> origin/main
