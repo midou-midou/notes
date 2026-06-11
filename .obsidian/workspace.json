@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "85327f63f7bffe75",
+        "id": "16ebd80d772b80a1",
         "type": "tabs",
         "children": [
           {
-            "id": "2a08ba79c74ffedc",
+            "id": "c847b7c62768f0df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/React Fiber.md",
+                "file": "AI/上下文工程 Context Engineering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React Fiber"
+              "title": "上下文工程 Context Engineering"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 258.5
   },
   "right": {
     "id": "68a449ba6f924872",
@@ -89,66 +89,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8afe4aab9974e7b2",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "计算机网络/OAuth.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "OAuth 的反向链接列表"
-            }
-          },
-          {
-            "id": "854b9905a0c29791",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "CSS/CSS+01caa7da-8ef4-4ded-8d61-d4b4d811fb43/布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "布局+e9358f87-f3a6-43f3-8d81-eddea3a884d5 的出链列表"
-            }
-          },
-          {
-            "id": "8e2e7d34a669aa6a",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "标签"
-            }
-          },
-          {
             "id": "d86050b4126577e8",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "React/React Fiber.md",
+                "file": "AI/上下文工程 Context Engineering.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "React Fiber 的大纲"
+              "title": "上下文工程 Context Engineering 的大纲"
             }
           },
           {
@@ -162,7 +114,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -172,61 +124,61 @@
     "hiddenItems": {
       "bases:新建数据库": false,
       "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
+      "graph:查看关系图谱": true,
+      "canvas:新建白板": true,
+      "daily-notes:打开/创建今天的日记": true,
+      "templates:插入模板": true,
+      "command-palette:打开命令面板": true,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2a08ba79c74ffedc",
+  "active": "cff6691665c08ae8",
   "lastOpenFiles": [
-    "ECMAScript/垃圾回收.md",
+    "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781166456003.png",
+    "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781161733799.png",
+    "AI/提示词工程 Prompt Engineering.md",
+    "AI/上下文工程 Context Engineering.md",
+    "AI/上下文工程 Context Engineering/上下文工程 Context Engineering-1781160955879.png",
+    "AI/上下文工程 Context Engineering",
+    "AI/提示词工程 Prompt Engineering/提示词工程 Prompt Engineering-1781159702708.png",
+    "AI/提示词工程 Prompt Engineering/提示词工程 Prompt Engineering-1781158708919.png",
+    "AI/提示词工程 Prompt Engineering",
+    "AI/检索增强生成 RAG.md",
+    "AI/记忆系统 Memory.md",
+    "AI/AI 工程架构.md",
+    "AI/LangChain.md",
+    "未命名.base",
+    "未命名 5.base",
+    "未命名 4.base",
+    "未命名 3.base",
+    "未命名 2.base",
+    "未命名 1.base",
+    "AI/未命名.base",
+    "AI/LLM 大语言模型.md",
+    "ECMAScript/Promise.md",
     "ECMAScript/Fetch.md",
-    "ECMAScript/Worker.md",
-    "ECMAScript/this.md",
-    "ECMAScript/当在浏览器地址栏输入url后都发生了什么.md",
-    "React/React Fiber.md",
-    "React/React Fiber/React Fiber-1775809615071.png",
-    "React/React Fiber/React Fiber-1775809564455.png",
-    "React/React Fiber/React Fiber-1775809545255.png",
-    "React/React Fiber/React Fiber-1775809507088.png",
-    "React/React Fiber/React Fiber-1775809460815.png",
-    "ECMAScript/浏览器渲染.md",
-    "React/React Fiber/React Fiber-1775807063013.png",
-    "React/React Fiber",
-    "React/React基础.md",
-    "React/Hooks.md",
-    "React/jsx.md",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket.md",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket/长轮询、长连接、服务器事件推送、WebSocket-1775617301419.png",
-    "ECMAScript/长轮询、长连接、服务器事件推送、WebSocket",
-    "React/React拓展.md",
-    "ECMAScript/浏览器渲染/浏览器渲染-1775531710414.png",
-    "ECMAScript/浏览器渲染/浏览器渲染-1775531662594.png",
-    "ECMAScript/浏览器渲染/浏览器渲染-1771987429826.png",
-    "React/Redux、react-redux.md",
+    "ECMAScript/未命名.base",
     "ECMAScript/事件循环.md",
-    "移动端/微信小程序.md",
+    "README.md",
+    "Vue/vue解析、编译.md",
+    "Vue/vue速查.md",
+    "ECMAScript/async、await.md",
+    "AI/Skill 和 Tool.md",
     "AI/MCP.md",
-    "AI/RAG.md",
-    "ECMAScript/作用域、执行上下文、this指向.md",
-    "AI/MCP",
-    "3D/Three.js.md",
-    "3D",
-    "ECMAScript/防抖、节流.md",
-    "工程化/webpack.md",
-    "Vue/响应式原理.md",
-    "Vue/渲染.md",
-    "AI/RAG",
-    "CSS/BFC 块级格式化上下文.md",
-    "AI",
-    "CSS/布局.md",
-    "移动端",
-    "CSS/层叠.md",
-    "node_modules",
-    "_tmp_5136_159a3f846f3b30314867f9407f38d8e8",
-    "ECMAScript/未命名.base"
+    "工程化/CICD.md",
+    "工程化/CICD/CICD-1779971941456.png",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/条件类型 conditional types.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/索引获取类型.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/模板字面量类型 Template Literal Types.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/类型操作关键字.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/过度的类型检查 Excess Property Checks.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/泛型.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/程序类型.md",
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/对象类型 Object Types.md",
+    "工程化/CICD/CICD-1779112843811.png",
+    "工程化/CICD/CICD-1779112768650.png",
+    "AI/Skill 和 Tool/Skill 和 Tool-1776998631783.png",
+    "AI/Skill 和 Tool/Skill 和 Tool-1776998604540.png",
+    "React/React Fiber/React Fiber-1775809615071.png"
   ]
 }

@@ -1,5 +1,7 @@
 可以通过条件表达式，根据条件表达式判断的结果返回一个类型
 
+⚠️这里也用到了 `extends`关键字， `extends...?:`这个是条件表达式，不是一个东西
+
 例子
 
 ```TypeScript
@@ -71,7 +73,7 @@ type Flatten<T> = T extends Array<infer Item> ? Item : T;
 
 所以这个`infer`是作为一个类型变量的前关键字的，而不是值变量的关键字。比如说这里不能用`typeof`代替`infer`
 
-回归正题，上面写的好处就是明确指定了`Type`类型的数组是不是继承了`Array<infer Item>`类型数组，比如说
+回归正题，上面写的好处就是明确指定了`T`类型的数组是不是继承了`Array<infer Item>`类型数组，比如说
 
 ```TypeScript
 type Str = Flatten<string[]>

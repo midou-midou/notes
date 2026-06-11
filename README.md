@@ -8,8 +8,15 @@
 
 #### AI
 
+- [AI 工程架构](./AI/AI%20工程架构.md)
+- [LLM 大语言模型](./AI/LLM%20大语言模型.md)
+- [LangChain](./AI/LangChain.md)
 - [MCP](./AI/MCP.md)
-- [RAG](./AI/RAG.md)
+- [Skill 和 Tool](./AI/Skill%20和%20Tool.md)
+- [上下文工程 Context Engineering](./AI/上下文工程%20Context%20Engineering.md)
+- [提示词工程 Prompt Engineering](./AI/提示词工程%20Prompt%20Engineering.md)
+- [检索增强生成 RAG](./AI/检索增强生成%20RAG.md)
+- [记忆系统 Memory](./AI/记忆系统%20Memory.md)
 
 #### CSS
 
@@ -70,7 +77,6 @@
 - [React拓展](./React/React拓展.md)
 - [React路由-react-router-dom](./React/React路由-react-router-dom.md)
 - [Redux、react-redux](./React/Redux、react-redux.md)
-- [jsx](./React/jsx.md)
 
 #### TypeScript
 
@@ -106,6 +112,7 @@
 #### 工程化
 
 - [Babel](./工程化/Babel.md)
+- [CICD](./工程化/CICD.md)
 - [ES下node多版本、包管理工具+npm,yarn,pnpm+多版本的研究](./工程化/ES下node多版本、包管理工具+npm,yarn,pnpm+多版本的研究.md)
 - [Export和Exposts](./工程化/Export和Exposts.md)
 - [Gulp](./工程化/Gulp.md)
