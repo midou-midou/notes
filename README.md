@@ -80,7 +80,7 @@
 
 #### TypeScript
 
-- [Class+类](./TypeScript/Class+类.md)
+- [Class 类](./TypeScript/Class%20类.md)
 - [d.ts+声明文件](./TypeScript/d.ts+声明文件.md)
 - [tsconfig.json](./TypeScript/tsconfig.json.md)
 - [命名空间+namespace](./TypeScript/命名空间+namespace.md)
@@ -104,6 +104,10 @@
 - [快速比对](./Vue/快速比对.md)
 - [渲染](./Vue/渲染.md)
 - [路由](./Vue/路由.md)
+
+#### 前端学习路线图
+
+- [前端学习路线图](./前端学习路线图)
 
 #### 参考资料
 

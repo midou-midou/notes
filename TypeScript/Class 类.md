@@ -141,10 +141,23 @@ class Foo {
 
 这点和其他面向对象的语言差不多，抽象类必须实现所有方法、属性。不能实例化抽象类，只能继承
 
+## 索引器（属性存取器）
 
+类允许定义属性索引，可以动态为类添加属性成员
 
+```typescript
+class MyClass {
+  [s:string]: boolean |
+    ((s:string) => boolean);
 
+  get(s:string) {
+    return this[s] as boolean;
+  }
+}
 
+let a: MyClass = new MyClass()
+a['foo'] = true
+```
 
 
 
