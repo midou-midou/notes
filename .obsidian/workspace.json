@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f19b9bdbea82ce74",
+        "id": "1943cc8e6c0b508a",
         "type": "tabs",
         "children": [
           {
-            "id": "43d939305c27fa38",
+            "id": "a39a77de4f0a2771",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/记忆系统 Memory.md",
+                "file": "软实力/简历怎么写、面试怎么说.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "记忆系统 Memory"
+              "title": "简历怎么写、面试怎么说"
             }
           }
         ]
@@ -94,13 +94,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/记忆系统 Memory.md",
+                "file": "软实力/简历怎么写、面试怎么说.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "记忆系统 Memory 的大纲"
+              "title": "简历怎么写、面试怎么说 的大纲"
             }
           },
           {
@@ -181,16 +181,22 @@
   },
   "active": "cff6691665c08ae8",
   "lastOpenFiles": [
-    "AI/上下文工程 Context Engineering.md",
+    "Vue/快速比对.md",
+    "Vue/vue速查.md",
+    "ECMAScript/事件循环.md",
+    "ECMAScript/事件循环/事件循环-1781668533193.svg",
+    "ECMAScript/事件循环/事件循环-1781659553284.png",
+    "ECMAScript/事件循环",
+    "前端学习路线图/前端学习路线图-1781507514822.png",
+    "软实力/简历怎么写、面试怎么说.md",
     "AI/记忆系统 Memory.md",
+    "AI/上下文工程 Context Engineering.md",
     "AI/记忆系统 Memory/记忆系统 Memory-1781576199895.png",
     "AI/记忆系统 Memory",
     "前端学习路线图.md",
     "README.md",
-    "前端学习路线图/前端学习路线图-1781507514822.png",
     "前端学习路线图",
     "TypeScript/Class 类.md",
-    "软实力/简历怎么写、面试怎么说.md",
     "AI/提示词工程 Prompt Engineering.md",
     "软实力",
     "AI/检索增强生成 RAG.md",
@@ -208,13 +214,10 @@
     "未命名 5.base",
     "未命名 4.base",
     "未命名 3.base",
-    "未命名 2.base",
     "AI/LLM 大语言模型.md",
     "ECMAScript/Promise.md",
     "ECMAScript/Fetch.md",
-    "ECMAScript/事件循环.md",
     "Vue/vue解析、编译.md",
-    "Vue/vue速查.md",
     "ECMAScript/async、await.md",
     "AI/Skill 和 Tool.md",
     "AI/MCP.md",
@@ -223,8 +226,6 @@
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/条件类型 conditional types.md",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/索引获取类型.md",
     "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/模板字面量类型 Template Literal Types.md",
-    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/类型操作关键字.md",
-    "工程化/CICD/CICD-1779112843811.png",
-    "工程化/CICD/CICD-1779112768650.png"
+    "TypeScript/类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba/类型操作关键字.md"
   ]
 }
