@@ -1,3 +1,11 @@
+---
+title: 类型断言+Assertion
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 断言：就是让编译器以你自己指定的一个类型去解析
 
 比如说，`document.getElementById`会返回一个`HTMLElement`的类型，但是这个类型太过于宽泛了，就可以使用断言来指定这个类型为`HTMLCanvasElement`（举例子，也有可能是其他的HTML元素）

@@ -1,3 +1,11 @@
+---
+title: recovery恢复
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # recovery恢复
 
 概念：定义在 `defer`关键字后的延迟函数中。使用内置函数 `recover()`来执行恢复操作。执行的流程如下

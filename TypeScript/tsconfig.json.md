@@ -1,3 +1,11 @@
+---
+title: tsconfig.json
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 ts项目的配置文件，可以指定项目编译的一些选项，也可以指定项目包含的文件
 
 同样的，用时查询即可

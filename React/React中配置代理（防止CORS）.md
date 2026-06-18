@@ -1,3 +1,11 @@
+---
+title: React中配置代理（防止CORS）
+tags: React
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # React中配置代理（防止CORS）
 
 ### 方法一：

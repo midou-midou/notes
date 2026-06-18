@@ -1,3 +1,11 @@
+---
+title: vscode配置go调试环境所用的json文件
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # vscode配置go调试环境所用的json文件
 
 ```JSON

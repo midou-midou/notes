@@ -1,3 +1,11 @@
+---
+title: 当在浏览器地址栏输入url后都发生了什么
+tags: ECMAScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
    # wwwwwww从url到页面
 
 ## DNS解析

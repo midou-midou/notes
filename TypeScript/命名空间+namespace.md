@@ -1,3 +1,11 @@
+---
+title: 命名空间+namespace
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 > 命名空间在`ts`里还有些历史遗留问题，`ts1.5`之前，那会儿`ES6`还没出来，没有原生的`模块化`支持，那会儿的`namespace`被称之为`内部模块（Internal modules）`
 
 `ts`中为了复用代码，更好的组织代码，会使用`namespace`声明，这个东西和`ts`中的`module`模块还不太一样，要注意⚠️

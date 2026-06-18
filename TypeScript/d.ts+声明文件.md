@@ -1,3 +1,11 @@
+---
+title: d.ts+声明文件
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 ### `declare`声明关键字
 
 后面可以跟一个变量、函数（多个同名的函数可以支持重载）、命名空间、类、`interface`

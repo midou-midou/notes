@@ -1,3 +1,11 @@
+---
+title: Context包
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # Context包
 
 在goroutine之间进行上下文的传递，相同的context可以传递给不同goroutine中的函数，goroutine可以携带一些参数，传递给需要使用的goroutine，也可以对goroutine进行控制，也就是所谓的并发控制

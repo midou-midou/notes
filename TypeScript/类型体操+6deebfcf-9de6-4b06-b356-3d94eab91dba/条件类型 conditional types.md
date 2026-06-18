@@ -1,3 +1,11 @@
+---
+title: 条件类型 conditional types
+tags: 类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 可以通过条件表达式，根据条件表达式判断的结果返回一个类型
 
 ⚠️这里也用到了 `extends`关键字， `extends...?:`这个是条件表达式，不是一个东西

@@ -1,3 +1,11 @@
+---
+title: vite
+tags: 工程化
+categories:
+  - 学习呦
+date: 2025-11-25 21:38:15
+---
+
 # vite
 
 > vite的出现，使用浏览器ES6模块原生支持，无需打包js文件，js文件以模块加载

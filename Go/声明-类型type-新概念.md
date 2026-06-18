@@ -1,3 +1,11 @@
+---
+title: 声明-类型type-新概念
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # 声明-类型type-新概念
 
 在go的声明中，有四种声明方式var，const，type，func。分别对应变量，常量，类型和函数的声明

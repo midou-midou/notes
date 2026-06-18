@@ -1,3 +1,11 @@
+---
+title: this
+tags: ECMAScript
+categories:
+  - 学习呦
+date: 2025-11-24 22:47:29
+---
+
 # this指向
 
 ## 简介

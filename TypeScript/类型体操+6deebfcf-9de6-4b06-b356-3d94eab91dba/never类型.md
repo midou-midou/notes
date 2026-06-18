@@ -1,3 +1,11 @@
+---
+title: never类型
+tags: 类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 `never`(the bottom type) —— 最底层的类型
 
 [Documentation - TypeScript for Functional Programmers](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#other-important-typescript-types)

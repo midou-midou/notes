@@ -1,3 +1,11 @@
+---
+title: ES下node多版本、包管理工具+npm,yarn,pnpm+多版本的研究
+tags: 工程化
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # ES下node多版本、包管理工具(npm,yarn,pnpm)多版本的研究
 
 ## node多版本管理工具

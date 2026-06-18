@@ -1,3 +1,11 @@
+---
+title: unknown类型
+tags: 类型体操+6deebfcf-9de6-4b06-b356-3d94eab91dba
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 unknown (the top types)最顶层的类型
 
 既然是最顶层的类型，可以将任何值赋值给一个`unknown`变量

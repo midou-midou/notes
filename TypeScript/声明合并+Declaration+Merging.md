@@ -1,3 +1,11 @@
+---
+title: 声明合并+Declaration+Merging
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 `interface`和`namespace`声明的类型可以合并，合并的方法就是定义相同名称的类型
 
 简单例子解释概念

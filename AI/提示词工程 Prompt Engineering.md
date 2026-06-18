@@ -1,3 +1,11 @@
+---
+title: 提示词工程 Prompt Engineering
+tags: AI
+categories:
+  - 学习呦
+date: 2026-06-01 10:28:03
+---
+
 # 介绍
 
 提示词是和Agent 交流的最常见途径，是给 LLM 大语言模型的指令，LLM 会理解你所输入的指令，并执行对应的操作，Prompt 的使用会控制LLM 的理解能力及执行能力，防止偏差及编造

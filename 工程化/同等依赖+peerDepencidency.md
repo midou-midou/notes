@@ -1,3 +1,11 @@
+---
+title: 同等依赖+peerDepencidency
+tags: 工程化
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # 同等依赖 PeerDepencidencies
 
 现在我有一个自己开发的项目，根目录`package.json`里面要引入一个我需要的`react`版本

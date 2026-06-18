@@ -1,3 +1,11 @@
+---
+title: BFC 块级格式化上下文
+tags: CSS
+categories:
+  - 学习呦
+date: 2025-11-17 20:11:21
+---
+
 # BFC (Block Formatting Context) 
 
 ## 概念

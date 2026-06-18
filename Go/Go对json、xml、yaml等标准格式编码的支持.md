@@ -1,3 +1,11 @@
+---
+title: Go对json、xml、yaml等标准格式编码的支持
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # Go对json、xml、yaml等标准格式编码的支持
 
 在go中有对这些标准的编码格式支持的包`encoding/json`、`encoding/xml`、 `encoding/asn1`等结构体成员“ini:”和后面对应于ini文件中的变量要没有空格，其他的json、yaml都要求后面没有空格

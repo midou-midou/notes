@@ -1,3 +1,11 @@
+---
+title: Class 类
+tags: TypeScript
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 类在`ES6`里面是一个语法糖(并不完全是，里面有一个内部标记`[[IsClassConstructor]]: true`，并且，必须用`new`关键字去取一个实例)
 
 ts中的类多了一些ts中的特性

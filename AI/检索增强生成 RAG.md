@@ -1,3 +1,11 @@
+---
+title: 检索增强生成 RAG
+tags: AI
+categories:
+  - 学习呦
+date: 2026-03-24 09:18:58
+---
+
 RAG（Retrieval-Augmented Generation）检索增强生成，是一种能让 LLM 大语言模型能从外部提供的数据源检索，主要应用于知识类的场景
 
 

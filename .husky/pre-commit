@@ -13,7 +13,7 @@ for dir in */; do
 
   # 跳过 . 开头的目录
   case "$dir_name" in
-    .*|node_modules) continue ;;
+    .*|_*|node_modules) continue ;;
   esac
 
   echo "#### $dir_name" >> "$OUTPUT"
@@ -43,3 +43,59 @@ for dir in */; do
 done
 
 git add README.md
+
+# ============================================================
+# 检查所有 md 文件是否有 frontmatter，没有则自动补全
+# ============================================================
+echo "Checking markdown files for frontmatter..."
+
+find . -name "*.md" \
+  -not -path "./.husky/*" \
+  -not -path "./node_modules/*" \
+  -not -path "./.git/*" \
+  -not -path "./.codebuddy/*" \
+  -not -path "./_*" \
+  -not -name "README.md" | while IFS= read -r file; do
+
+  first_line=$(head -n 1 "$file")
+
+  if [ "$first_line" != "---" ]; then
+    # 获取文件名（不含扩展名）作为 title
+    title=$(basename "$file" .md)
+
+    # 获取父文件夹名作为 tags
+    parent_dir=$(dirname "$file")
+    if [ "$parent_dir" = "." ]; then
+      tags=""
+    else
+      tags=$(basename "$parent_dir")
+    fi
+
+    # 获取文件创建日期（macOS: stat -f %B 取 birth time）
+    birth_epoch=$(stat -f %B "$file" 2>/dev/null)
+    if [ -z "$birth_epoch" ] || [ "$birth_epoch" = "0" ]; then
+      birth_epoch=$(stat -f %m "$file" 2>/dev/null)
+    fi
+    date_str=$(date -r "$birth_epoch" "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
+
+    # 构建 frontmatter
+    frontmatter="---
+title: $title
+tags: $tags
+categories:
+  - 学习呦
+date: $date_str
+---"
+
+    # 写入临时文件：frontmatter + 空行 + 原始内容
+    tmp_file=$(mktemp)
+    printf '%s\n\n' "$frontmatter" > "$tmp_file"
+    cat "$file" >> "$tmp_file"
+    mv "$tmp_file" "$file"
+
+    git add "$file"
+    echo "  Added frontmatter: $file"
+  fi
+done
+
+echo "Frontmatter check done."

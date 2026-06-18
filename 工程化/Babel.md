@@ -1,3 +1,11 @@
+---
+title: Babel
+tags: 工程化
+categories:
+  - 学习呦
+date: 2026-01-30 15:57:43
+---
+
 # 概念
 
 Babel 把 ES新规范的 js代码转换成老版本规范的 js 代码，所以，Babel 本质是 js 到 js 的编译器

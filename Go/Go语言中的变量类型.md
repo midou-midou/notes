@@ -1,3 +1,11 @@
+---
+title: Go语言中的变量类型
+tags: Go
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # Go语言中的变量类型
 
 ### 值类型（value type）

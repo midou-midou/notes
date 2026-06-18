@@ -1,3 +1,11 @@
+---
+title: CICD
+tags: 工程化
+categories:
+  - 学习呦
+date: 2026-06-11 17:09:33
+---
+
 持续集成 (Continuous Integration) 和持续交付/部署 (Continuous Delivery/Deployment) ，可自动触发的构建流水线，且构建成功后可自动部署
 
 ## 背景

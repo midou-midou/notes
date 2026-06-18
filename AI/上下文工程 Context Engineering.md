@@ -1,3 +1,11 @@
+---
+title: 上下文工程 Context Engineering
+tags: AI
+categories:
+  - 学习呦
+date: 2026-06-01 10:28:25
+---
+
 # 概念
 
 上下文是用户提示词、系统提示词、记忆、RAG 库、工具调用结果的汇总信息

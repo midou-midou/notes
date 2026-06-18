@@ -1,3 +1,11 @@
+---
+title: Babel 插件 Handbook
+tags: 参考资料
+categories:
+  - 学习呦
+date: 2026-01-31 10:02:09
+---
+
 # Babel 插件手册
 
 这篇文档涵盖了如何创建 [Babel](https://babeljs.io) [插件](https://babeljs.io/docs/advanced/plugins/)等方面的内容。.

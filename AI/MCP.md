@@ -1,3 +1,11 @@
+---
+title: MCP
+tags: AI
+categories:
+  - 学习呦
+date: 2026-03-24 09:18:51
+---
+
 MCP（Model Context Protocol）是一套标准协议，这套标准协议规定了应用程序之间如何通信，如何按照这一套标准协议传递数据
 ![](./MCP/MCP-1774749420862.png)
 

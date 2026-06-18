@@ -1,3 +1,11 @@
+---
+title: Skill 和 Tool
+tags: AI
+categories:
+  - 学习呦
+date: 2026-06-11 17:09:33
+---
+
 <<<<<<< HEAD
 # 什么是Skills
 

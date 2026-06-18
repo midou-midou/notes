@@ -1,3 +1,11 @@
+---
+title: Nuxt
+tags: Vue
+categories:
+  - 学习呦
+date: 2025-10-14 21:01:35
+---
+
 # Nuxt
 
 vue的一个框架，使用vue2。
