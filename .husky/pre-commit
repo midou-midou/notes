@@ -55,6 +55,8 @@ find . -name "*.md" \
   -not -path "./.git/*" \
   -not -path "./.codebuddy/*" \
   -not -path "./_*" \
+  -not -path "./*.json" \
+  -not -path "./*.yaml" \
   -not -name "README.md" | while IFS= read -r file; do
 
   first_line=$(head -n 1 "$file")
